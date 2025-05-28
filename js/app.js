@@ -29,6 +29,12 @@ class MEPApplication {
             // Initialize modules
             await this.initModules();
             
+                // Tras initModules() y antes de cargar el módulo por defecto:
+    window.addEventListener('hashchange', () => {
+      const m = window.location.hash.slice(1) || 'dashboard';
+      this.loadModule(m);
+    });
+
             // Load default module
             const savedModule = MEP_Utils.storage.get(MEP_CONFIG.STORAGE.CURRENT_MODULE) || 'dashboard';
             await this.loadModule(savedModule);
@@ -82,6 +88,17 @@ class MEPApplication {
         
         // Dropdown menus
         document.addEventListener('click', (e) => this.handleDocumentClick(e));
+
+            // Dentro de setupEventListeners(), tras los otros listeners:
+    MEP_Utils.$$('.sidebar-nav-item[data-module]').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();                           // evitar scroll al href="#..."
+        const moduleId = link.getAttribute('data-module');
+        window.location.hash = moduleId;              // opcional: mantener la URL en #module
+        this.loadModule(moduleId);                    // invocar tu propio loader
+      });
+    });
+
     }
 
     async initModules() {
