@@ -1,0 +1,756 @@
+<html lang="es"><head>
+
+
+
+
+
+
+
+</head></html><!-- TASKS MODULE - Reemplazar el contenido del div id="tasks-module" -->
+<div class="module-content hidden" id="tasks-module">
+<div class="space-y-6">
+<div class="flex items-center justify-between">
+<div>
+<h2 style="font-size: var(--font-size-3xl); font-weight: 800; color: var(--text-primary); margin-bottom: var(--space-xs);">Gestión de Tareas</h2>
+<p style="color: var(--text-secondary); font-size: var(--font-size-lg); font-weight: 500;">Organiza y administra todas las tareas del equipo</p>
+</div>
+<div style="display: flex; gap: var(--space-md);">
+<button class="btn btn-secondary">
+<i data-lucide="filter" style="width: 18px; height: 18px;"></i>
+                    Filtrar
+                </button>
+<button class="btn btn-primary" onclick="showCreateTaskModal()">
+<i data-lucide="plus" style="width: 18px; height: 18px;"></i>
+                    Nueva Tarea
+                </button>
+</div>
+</div>
+<!-- Stats Cards -->
+<div class="grid grid-cols-4">
+<div class="stat-card">
+<div class="stat-header">
+<div class="stat-content">
+<h3>Total Tareas</h3>
+<p>156</p>
+<div class="stat-trend stat-trend-positive">
+<i data-lucide="trending-up" style="width: 16px; height: 16px;"></i>
+<span>+12 esta semana</span>
+</div>
+</div>
+<div class="stat-icon" style="background: linear-gradient(135deg, var(--mep-info), #1D4ED8);">
+<i data-lucide="check-square" style="width: 28px; height: 28px;"></i>
+</div>
+</div>
+</div>
+<div class="stat-card">
+<div class="stat-header">
+<div class="stat-content">
+<h3>Pendientes</h3>
+<p>42</p>
+<div class="stat-trend stat-trend-negative">
+<i data-lucide="clock" style="width: 16px; height: 16px;"></i>
+<span>8 urgentes</span>
+</div>
+</div>
+<div class="stat-icon" style="background: linear-gradient(135deg, var(--mep-warning), #EA580C);">
+<i data-lucide="clock" style="width: 28px; height: 28px;"></i>
+</div>
+</div>
+</div>
+<div class="stat-card">
+<div class="stat-header">
+<div class="stat-content">
+<h3>Completadas</h3>
+<p>98</p>
+<div class="stat-trend stat-trend-positive">
+<i data-lucide="check" style="width: 16px; height: 16px;"></i>
+<span>62% completadas</span>
+</div>
+</div>
+<div class="stat-icon" style="background: var(--bg-sidebar-active);">
+<i data-lucide="check-circle" style="width: 28px; height: 28px;"></i>
+</div>
+</div>
+</div>
+<div class="stat-card">
+<div class="stat-header">
+<div class="stat-content">
+<h3>En Progreso</h3>
+<p>16</p>
+<div class="stat-trend stat-trend-neutral">
+<i data-lucide="play-circle" style="width: 16px; height: 16px;"></i>
+<span>En desarrollo</span>
+</div>
+</div>
+<div class="stat-icon" style="background: linear-gradient(135deg, #8B5CF6, #7C3AED);">
+<i data-lucide="play-circle" style="width: 28px; height: 28px;"></i>
+</div>
+</div>
+</div>
+</div>
+<!-- Filters and Sorting -->
+<div class="card">
+<div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--space-lg);">
+<div style="display: flex; gap: var(--space-md);">
+<select style="padding: var(--space-sm) var(--space-md); border: 2px solid var(--border-primary); border-radius: var(--radius-lg); background: var(--bg-surface); color: var(--text-primary);">
+<option value="all">Todas las tareas</option>
+<option value="pending">Pendientes</option>
+<option value="progress">En progreso</option>
+<option value="completed">Completadas</option>
+</select>
+<select style="padding: var(--space-sm) var(--space-md); border: 2px solid var(--border-primary); border-radius: var(--radius-lg); background: var(--bg-surface); color: var(--text-primary);">
+<option value="all">Todos los proyectos</option>
+<option value="mep-2025">MEP-2025</option>
+<option value="erp">Sistema ERP</option>
+<option value="cloud">Migración Cloud</option>
+</select>
+<select style="padding: var(--space-sm) var(--space-md); border: 2px solid var(--border-primary); border-radius: var(--radius-lg); background: var(--bg-surface); color: var(--text-primary);">
+<option value="all">Todas las prioridades</option>
+<option value="high">Alta</option>
+<option value="medium">Media</option>
+<option value="low">Baja</option>
+</select>
+</div>
+<div style="display: flex; gap: var(--space-sm);">
+<button class="btn btn-ghost" id="list-view-btn" onclick="toggleTaskView('list')">
+<i data-lucide="list" style="width: 18px; height: 18px;"></i>
+</button>
+<button class="btn btn-ghost" id="kanban-view-btn" onclick="toggleTaskView('kanban')">
+<i data-lucide="columns" style="width: 18px; height: 18px;"></i>
+</button>
+</div>
+</div>
+<!-- List View -->
+<div class="task-view active" id="list-view">
+<div class="space-y-4">
+<!-- High Priority Tasks -->
+<div style="border: 1px solid var(--mep-error); border-radius: var(--radius-xl); padding: var(--space-lg); background: rgba(239, 68, 68, 0.05);">
+<h4 style="color: var(--mep-error); font-weight: 700; margin-bottom: var(--space-md); display: flex; align-items: center; gap: var(--space-sm);">
+<i data-lucide="alert-triangle" style="width: 20px; height: 20px;"></i>
+                            Tareas de Alta Prioridad
+                        </h4>
+<div class="space-y-3">
+<div class="task-item" style="display: flex; align-items: center; padding: var(--space-md); background: var(--bg-surface); border-radius: var(--radius-lg); border: 1px solid var(--border-primary);">
+<div class="task-checkbox" onclick="toggleTaskComplete(this)" style="width: 24px; height: 24px; border: 2px solid var(--mep-error); border-radius: var(--radius-sm); margin-right: var(--space-lg); cursor: pointer; transition: all var(--transition-fast);"></div>
+<div style="flex: 1; margin-right: var(--space-lg);">
+<h5 style="font-weight: 600; color: var(--text-primary); margin-bottom: 4px;">Revisar propuesta técnica cliente TechStart</h5>
+<p style="font-size: var(--font-size-sm); color: var(--text-secondary); margin-bottom: var(--space-sm);">Analizar requerimientos y preparar respuesta técnica</p>
+<div style="display: flex; align-items: center; gap: var(--space-md); font-size: var(--font-size-sm); color: var(--text-tertiary);">
+<span style="display: flex; align-items: center; gap: var(--space-xs);"><i data-lucide="calendar" style="width: 14px; height: 14px;"></i> Hoy</span>
+<span style="display: flex; align-items: center; gap: var(--space-xs);"><i data-lucide="folder" style="width: 14px; height: 14px;"></i> MEP-2025</span>
+<span style="display: flex; align-items: center; gap: var(--space-xs);"><i data-lucide="user" style="width: 14px; height: 14px;"></i> Ana López</span>
+</div>
+</div>
+<div style="display: flex; align-items: center; gap: var(--space-md);">
+<span class="badge badge-danger">Alta</span>
+<button class="btn btn-ghost" onclick="editTask(1)" style="padding: var(--space-sm);">
+<i data-lucide="edit-3" style="width: 16px; height: 16px;"></i>
+</button>
+</div>
+</div>
+<div class="task-item" style="display: flex; align-items: center; padding: var(--space-md); background: var(--bg-surface); border-radius: var(--radius-lg); border: 1px solid var(--border-primary);">
+<div class="task-checkbox" onclick="toggleTaskComplete(this)" style="width: 24px; height: 24px; border: 2px solid var(--mep-error); border-radius: var(--radius-sm); margin-right: var(--space-lg); cursor: pointer; transition: all var(--transition-fast);"></div>
+<div style="flex: 1; margin-right: var(--space-lg);">
+<h5 style="font-weight: 600; color: var(--text-primary); margin-bottom: 4px;">Configurar servidor de producción</h5>
+<p style="font-size: var(--font-size-sm); color: var(--text-secondary); margin-bottom: var(--space-sm);">Setup completo del servidor para el nuevo cliente</p>
+<div style="display: flex; align-items: center; gap: var(--space-md); font-size: var(--font-size-sm); color: var(--text-tertiary);">
+<span style="display: flex; align-items: center; gap: var(--space-xs);"><i data-lucide="calendar" style="width: 14px; height: 14px;"></i> Mañana</span>
+<span style="display: flex; align-items: center; gap: var(--space-xs);"><i data-lucide="folder" style="width: 14px; height: 14px;"></i> Migración Cloud</span>
+<span style="display: flex; align-items: center; gap: var(--space-xs);"><i data-lucide="user" style="width: 14px; height: 14px;"></i> Carlos Gómez</span>
+</div>
+</div>
+<div style="display: flex; align-items: center; gap: var(--space-md);">
+<span class="badge badge-danger">Alta</span>
+<button class="btn btn-ghost" onclick="editTask(2)" style="padding: var(--space-sm);">
+<i data-lucide="edit-3" style="width: 16px; height: 16px;"></i>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Medium Priority Tasks -->
+<div style="border: 1px solid var(--mep-warning); border-radius: var(--radius-xl); padding: var(--space-lg); background: rgba(245, 158, 11, 0.05);">
+<h4 style="color: var(--mep-warning); font-weight: 700; margin-bottom: var(--space-md); display: flex; align-items: center; gap: var(--space-sm);">
+<i data-lucide="clock" style="width: 20px; height: 20px;"></i>
+                            Tareas de Prioridad Media
+                        </h4>
+<div class="space-y-3">
+<div class="task-item" style="display: flex; align-items: center; padding: var(--space-md); background: var(--bg-surface); border-radius: var(--radius-lg); border: 1px solid var(--border-primary);">
+<div class="task-checkbox" onclick="toggleTaskComplete(this)" style="width: 24px; height: 24px; border: 2px solid var(--mep-warning); border-radius: var(--radius-sm); margin-right: var(--space-lg); cursor: pointer; transition: all var(--transition-fast);"></div>
+<div style="flex: 1; margin-right: var(--space-lg);">
+<h5 style="font-weight: 600; color: var(--text-primary); margin-bottom: 4px;">Actualizar documentación de API</h5>
+<p style="font-size: var(--font-size-sm); color: var(--text-secondary); margin-bottom: var(--space-sm);">Documentar nuevos endpoints y funcionalidades</p>
+<div style="display: flex; align-items: center; gap: var(--space-md); font-size: var(--font-size-sm); color: var(--text-tertiary);">
+<span style="display: flex; align-items: center; gap: var(--space-xs);"><i data-lucide="calendar" style="width: 14px; height: 14px;"></i> 30 May</span>
+<span style="display: flex; align-items: center; gap: var(--space-xs);"><i data-lucide="folder" style="width: 14px; height: 14px;"></i> MEP-2025</span>
+<span style="display: flex; align-items: center; gap: var(--space-xs);"><i data-lucide="user" style="width: 14px; height: 14px;"></i> Pedro Sánchez</span>
+</div>
+</div>
+<div style="display: flex; align-items: center; gap: var(--space-md);">
+<span class="badge badge-warning">Media</span>
+<button class="btn btn-ghost" onclick="editTask(3)" style="padding: var(--space-sm);">
+<i data-lucide="edit-3" style="width: 16px; height: 16px;"></i>
+</button>
+</div>
+</div>
+<div class="task-item completed" style="display: flex; align-items: center; padding: var(--space-md); background: var(--bg-surface); border-radius: var(--radius-lg); border: 1px solid var(--border-primary); opacity: 0.7;">
+<div class="task-checkbox" onclick="toggleTaskComplete(this)" style="width: 24px; height: 24px; background: var(--bg-sidebar-active); border: 2px solid var(--mep-primary-500); border-radius: var(--radius-sm); margin-right: var(--space-lg); cursor: pointer; display: flex; align-items: center; justify-content: center;">
+<i data-lucide="check" style="width: 14px; height: 14px; color: white;"></i>
+</div>
+<div style="flex: 1; margin-right: var(--space-lg);">
+<h5 style="font-weight: 600; color: var(--text-primary); margin-bottom: 4px; text-decoration: line-through;">Preparar informe mensual de progreso</h5>
+<p style="font-size: var(--font-size-sm); color: var(--text-secondary); margin-bottom: var(--space-sm);">Compilar métricas y resultados del mes</p>
+<div style="display: flex; align-items: center; gap: var(--space-md); font-size: var(--font-size-sm); color: var(--text-tertiary);">
+<span style="display: flex; align-items: center; gap: var(--space-xs);"><i data-lucide="check-circle" style="width: 14px; height: 14px;"></i> Completada</span>
+<span style="display: flex; align-items: center; gap: var(--space-xs);"><i data-lucide="folder" style="width: 14px; height: 14px;"></i> General</span>
+<span style="display: flex; align-items: center; gap: var(--space-xs);"><i data-lucide="user" style="width: 14px; height: 14px;"></i> María Rodríguez</span>
+</div>
+</div>
+<div style="display: flex; align-items: center; gap: var(--space-md);">
+<span class="badge badge-success">Completada</span>
+<button class="btn btn-ghost" onclick="editTask(4)" style="padding: var(--space-sm);">
+<i data-lucide="edit-3" style="width: 16px; height: 16px;"></i>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Kanban View -->
+<div class="task-view hidden" id="kanban-view">
+<div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-lg);">
+<!-- To Do Column -->
+<div class="kanban-column" style="background: var(--bg-tertiary); padding: var(--space-lg); border-radius: var(--radius-xl);">
+<h4 style="font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-lg); display: flex; align-items: center; justify-content: space-between;">
+                            Por Hacer
+                            <span class="badge" style="background: var(--text-tertiary); color: white;">12</span>
+</h4>
+<div class="space-y-4">
+<div class="kanban-task" style="background: var(--bg-surface); padding: var(--space-md); border-radius: var(--radius-lg); border: 1px solid var(--border-primary); cursor: grab;">
+<div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: var(--space-sm);">
+<span class="badge badge-danger">Alta</span>
+<button class="btn btn-ghost" style="padding: 4px;">
+<i data-lucide="more-horizontal" style="width: 16px; height: 16px;"></i>
+</button>
+</div>
+<h5 style="font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-sm);">Revisar propuesta técnica</h5>
+<p style="font-size: var(--font-size-sm); color: var(--text-secondary); margin-bottom: var(--space-md);">Analizar requerimientos del cliente TechStart</p>
+<div style="display: flex; justify-content: space-between; align-items: center;">
+<div style="display: flex; align-items: center; gap: var(--space-xs); font-size: var(--font-size-xs); color: var(--text-tertiary);">
+<i data-lucide="check" style="width: 12px; height: 12px;"></i>
+                                        Completada
+                                    </div>
+<div class="user-avatar" style="width: 24px; height: 24px; font-size: var(--font-size-xs);">M</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Task Calendar -->
+<div class="card">
+<h3 style="font-size: var(--font-size-xl); font-weight: 800; color: var(--text-primary); margin-bottom: var(--space-xl);">Calendario de Tareas</h3>
+<div style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 1px; background: var(--border-primary); border-radius: var(--radius-lg); overflow: hidden;">
+<!-- Calendar Header -->
+<div style="background: var(--bg-tertiary); padding: var(--space-md); text-align: center; font-weight: 700; color: var(--text-secondary);">L</div>
+<div style="background: var(--bg-tertiary); padding: var(--space-md); text-align: center; font-weight: 700; color: var(--text-secondary);">M</div>
+<div style="background: var(--bg-tertiary); padding: var(--space-md); text-align: center; font-weight: 700; color: var(--text-secondary);">X</div>
+<div style="background: var(--bg-tertiary); padding: var(--space-md); text-align: center; font-weight: 700; color: var(--text-secondary);">J</div>
+<div style="background: var(--bg-tertiary); padding: var(--space-md); text-align: center; font-weight: 700; color: var(--text-secondary);">V</div>
+<div style="background: var(--bg-tertiary); padding: var(--space-md); text-align: center; font-weight: 700; color: var(--text-secondary);">S</div>
+<div style="background: var(--bg-tertiary); padding: var(--space-md); text-align: center; font-weight: 700; color: var(--text-secondary);">D</div>
+<!-- Calendar Days -->
+<div style="background: var(--bg-surface); padding: var(--space-md); min-height: 80px; position: relative;">
+<div style="font-weight: 600; color: var(--text-tertiary);">26</div>
+</div>
+<div style="background: var(--bg-surface); padding: var(--space-md); min-height: 80px; position: relative; border: 2px solid var(--mep-primary-500);">
+<div style="font-weight: 600; color: var(--text-primary);">27</div>
+<div style="background: var(--mep-error); color: white; font-size: var(--font-size-xs); padding: 2px 4px; border-radius: var(--radius-sm); margin-top: 4px;">2 urgentes</div>
+</div>
+<div style="background: var(--bg-surface); padding: var(--space-md); min-height: 80px; position: relative;">
+<div style="font-weight: 600; color: var(--text-primary);">28</div>
+<div style="background: var(--mep-warning); color: white; font-size: var(--font-size-xs); padding: 2px 4px; border-radius: var(--radius-sm); margin-top: 4px;">1 media</div>
+</div>
+<div style="background: var(--bg-surface); padding: var(--space-md); min-height: 80px; position: relative;">
+<div style="font-weight: 600; color: var(--text-primary);">29</div>
+</div>
+<div style="background: var(--bg-surface); padding: var(--space-md); min-height: 80px; position: relative;">
+<div style="font-weight: 600; color: var(--text-primary);">30</div>
+<div style="background: var(--mep-info); color: white; font-size: var(--font-size-xs); padding: 2px 4px; border-radius: var(--radius-sm); margin-top: 4px;">3 tareas</div>
+</div>
+<div style="background: var(--bg-surface); padding: var(--space-md); min-height: 80px; position: relative;">
+<div style="font-weight: 600; color: var(--text-primary);">31</div>
+</div>
+<div style="background: var(--bg-surface); padding: var(--space-md); min-height: 80px; position: relative;">
+<div style="font-weight: 600; color: var(--text-primary);">1</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Task Creation Modal (Hidden by default) -->
+<div id="create-task-modal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 1000; display: none; align-items: center; justify-content: center;">
+<div style="background: var(--bg-surface); border-radius: var(--radius-2xl); padding: var(--space-2xl); max-width: 600px; width: 90%; max-height: 90vh; overflow-y: auto;">
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-xl);">
+<h3 style="font-size: var(--font-size-2xl); font-weight: 800; color: var(--text-primary);">Nueva Tarea</h3>
+<button onclick="hideCreateTaskModal()" style="background: none; border: none; color: var(--text-tertiary); cursor: pointer; padding: var(--space-sm);">
+<i data-lucide="x" style="width: 24px; height: 24px;"></i>
+</button>
+</div>
+<div class="flex flex-col space-y-4">
+<div style="margin-bottom: var(--space-lg);">
+<label style="display: block; font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-sm);">Título de la tarea</label>
+<input placeholder="Escribe el título de la tarea..." style="width: 100%; padding: var(--space-md); border: 2px solid var(--border-primary); border-radius: var(--radius-lg); background: var(--bg-surface); color: var(--text-primary); font-size: var(--font-size-base);" type="text"/>
+</div>
+<div style="margin-bottom: var(--space-lg);">
+<label style="display: block; font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-sm);">Descripción</label>
+<textarea placeholder="Describe la tarea en detalle..." rows="4" style="width: 100%; padding: var(--space-md); border: 2px solid var(--border-primary); border-radius: var(--radius-lg); background: var(--bg-surface); color: var(--text-primary); font-size: var(--font-size-base); resize: vertical;"></textarea>
+</div>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg); margin-bottom: var(--space-lg);">
+<div>
+<label style="display: block; font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-sm);">Proyecto</label>
+<select style="width: 100%; padding: var(--space-md); border: 2px solid var(--border-primary); border-radius: var(--radius-lg); background: var(--bg-surface); color: var(--text-primary);">
+<option value="">Seleccionar proyecto...</option>
+<option value="mep-2025">MEP-2025</option>
+<option value="erp">Sistema ERP</option>
+<option value="cloud">Migración Cloud</option>
+<option value="general">General</option>
+</select>
+</div>
+<div>
+<label style="display: block; font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-sm);">Asignado a</label>
+<select style="width: 100%; padding: var(--space-md); border: 2px solid var(--border-primary); border-radius: var(--radius-lg); background: var(--bg-surface); color: var(--text-primary);">
+<option value="">Seleccionar persona...</option>
+<option value="enrique">Enrique (Yo)</option>
+<option value="ana">Ana López</option>
+<option value="carlos">Carlos Gómez</option>
+<option value="pedro">Pedro Sánchez</option>
+<option value="maria">María Rodríguez</option>
+</select>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: var(--space-lg); margin-bottom: var(--space-lg);">
+<div>
+<label style="display: block; font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-sm);">Prioridad</label>
+<select style="width: 100%; padding: var(--space-md); border: 2px solid var(--border-primary); border-radius: var(--radius-lg); background: var(--bg-surface); color: var(--text-primary);">
+<option value="low">Baja</option>
+<option selected="" value="medium">Media</option>
+<option value="high">Alta</option>
+</select>
+</div>
+<div>
+<label style="display: block; font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-sm);">Fecha límite</label>
+<input style="width: 100%; padding: var(--space-md); border: 2px solid var(--border-primary); border-radius: var(--radius-lg); background: var(--bg-surface); color: var(--text-primary);" type="date"/>
+</div>
+<div>
+<label style="display: block; font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-sm);">Estimación (horas)</label>
+<input max="100" min="0" placeholder="0" style="width: 100%; padding: var(--space-md); border: 2px solid var(--border-primary); border-radius: var(--radius-lg); background: var(--bg-surface); color: var(--text-primary);" type="number"/>
+</div>
+</div>
+<div style="margin-bottom: var(--space-xl);">
+<label style="display: block; font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-sm);">Etiquetas</label>
+<div style="display: flex; gap: var(--space-sm); flex-wrap: wrap;">
+<button onclick="toggleTag(this)" style="padding: var(--space-sm) var(--space-md); border: 2px solid var(--border-primary); border-radius: var(--radius-full); background: var(--bg-surface); color: var(--text-secondary); font-size: var(--font-size-sm); cursor: pointer; transition: all var(--transition-fast);" type="button">Frontend</button>
+<button onclick="toggleTag(this)" style="padding: var(--space-sm) var(--space-md); border: 2px solid var(--border-primary); border-radius: var(--radius-full); background: var(--bg-surface); color: var(--text-secondary); font-size: var(--font-size-sm); cursor: pointer; transition: all var(--transition-fast);" type="button">Backend</button>
+<button onclick="toggleTag(this)" style="padding: var(--space-sm) var(--space-md); border: 2px solid var(--border-primary); border-radius: var(--radius-full); background: var(--bg-surface); color: var(--text-secondary); font-size: var(--font-size-sm); cursor: pointer; transition: all var(--transition-fast);" type="button">Documentación</button>
+<button onclick="toggleTag(this)" style="padding: var(--space-sm) var(--space-md); border: 2px solid var(--border-primary); border-radius: var(--radius-full); background: var(--bg-surface); color: var(--text-secondary); font-size: var(--font-size-sm); cursor: pointer; transition: all var(--transition-fast);" type="button">Testing</button>
+<button onclick="toggleTag(this)" style="padding: var(--space-sm) var(--space-md); border: 2px solid var(--border-primary); border-radius: var(--radius-full); background: var(--bg-surface); color: var(--text-secondary); font-size: var(--font-size-sm); cursor: pointer; transition: all var(--transition-fast);" type="button">Reunión</button>
+</div>
+</div>
+<div style="display: flex; gap: var(--space-md); justify-content: flex-end;">
+<button class="btn btn-secondary" onclick="hideCreateTaskModal()" type="button">Cancelar</button>
+<button class="btn btn-primary" type="submit">Crear Tarea</button>
+</div>
+
+</div>
+</div>
+<script>
+// Task Management Functions
+function toggleTaskView(view) {
+    const listView = document.getElementById('list-view');
+    const kanbanView = document.getElementById('kanban-view');
+    const listBtn = document.getElementById('list-view-btn');
+    const kanbanBtn = document.getElementById('kanban-view-btn');
+
+    if (view === 'list') {
+        listView.classList.remove('hidden');
+        kanbanView.classList.add('hidden');
+        listBtn.style.background = 'var(--bg-sidebar-active)';
+        listBtn.style.color = 'var(--text-on-primary)';
+        kanbanBtn.style.background = 'transparent';
+        kanbanBtn.style.color = 'var(--text-secondary)';
+    } else {
+        listView.classList.add('hidden');
+        kanbanView.classList.remove('hidden');
+        kanbanBtn.style.background = 'var(--bg-sidebar-active)';
+        kanbanBtn.style.color = 'var(--text-on-primary)';
+        listBtn.style.background = 'transparent';
+        listBtn.style.color = 'var(--text-secondary)';
+    }
+}
+
+function toggleTaskComplete(checkbox) {
+    const isCompleted = checkbox.style.background.includes('var(--bg-sidebar-active)');
+    const taskItem = checkbox.closest('.task-item');
+    
+    if (isCompleted) {
+        checkbox.style.background = 'transparent';
+        checkbox.style.border = '2px solid var(--border-secondary)';
+        checkbox.innerHTML = '';
+        taskItem.classList.remove('completed');
+        taskItem.style.opacity = '1';
+        taskItem.querySelector('h5').style.textDecoration = 'none';
+    } else {
+        checkbox.style.background = 'var(--bg-sidebar-active)';
+        checkbox.style.border = '2px solid var(--mep-primary-500)';
+        checkbox.innerHTML = '<i data-lucide="check" style="width: 14px; height: 14px; color: white;"></i>';
+        taskItem.classList.add('completed');
+        taskItem.style.opacity = '0.7';
+        taskItem.querySelector('h5').style.textDecoration = 'line-through';
+        lucide.createIcons();
+    }
+}
+
+function showCreateTaskModal() {
+    document.getElementById('create-task-modal').style.display = 'flex';
+}
+
+function hideCreateTaskModal() {
+    document.getElementById('create-task-modal').style.display = 'none';
+}
+
+function toggleTag(button) {
+    const isSelected = button.style.background.includes('var(--bg-sidebar-active)');
+    
+    if (isSelected) {
+        button.style.background = 'var(--bg-surface)';
+        button.style.color = 'var(--text-secondary)';
+        button.style.borderColor = 'var(--border-primary)';
+    } else {
+        button.style.background = 'var(--bg-sidebar-active)';
+        button.style.color = 'var(--text-on-primary)';
+        button.style.borderColor = 'var(--mep-primary-500)';
+    }
+}
+
+function editTask(taskId) {
+    console.log('Editando tarea:', taskId);
+    // Aquí implementarías la lógica para editar la tarea
+}
+
+// Initialize task view
+document.addEventListener('DOMContentLoaded', function() {
+    toggleTaskView('list'); // Default to list view
+});
+</script>(--text-tertiary);"&gt;
+                                        <i data-lucide="check" style="width: 12px; height: 12px;"></i>
+                                        Completada
+                                    </div>
+<div class="user-avatar" style="width: 24px; height: 24px; font-size: var(--font-size-xs);">M</div>
+
+
+
+
+
+
+
+<!-- Task Calendar -->
+<div class="card">
+<h3 style="font-size: var(--font-size-xl); font-weight: 800; color: var(--text-primary); margin-bottom: var(--space-xl);">Calendario de Tareas</h3>
+<div style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 1px; background: var(--border-primary); border-radius: var(--radius-lg); overflow: hidden;">
+<!-- Calendar Header -->
+<div style="background: var(--bg-tertiary); padding: var(--space-md); text-align: center; font-weight: 700; color: var(--text-secondary);">L</div>
+<div style="background: var(--bg-tertiary); padding: var(--space-md); text-align: center; font-weight: 700; color: var(--text-secondary);">M</div>
+<div style="background: var(--bg-tertiary); padding: var(--space-md); text-align: center; font-weight: 700; color: var(--text-secondary);">X</div>
+<div style="background: var(--bg-tertiary); padding: var(--space-md); text-align: center; font-weight: 700; color: var(--text-secondary);">J</div>
+<div style="background: var(--bg-tertiary); padding: var(--space-md); text-align: center; font-weight: 700; color: var(--text-secondary);">V</div>
+<div style="background: var(--bg-tertiary); padding: var(--space-md); text-align: center; font-weight: 700; color: var(--text-secondary);">S</div>
+<div style="background: var(--bg-tertiary); padding: var(--space-md); text-align: center; font-weight: 700; color: var(--text-secondary);">D</div>
+<!-- Calendar Days -->
+<div style="background: var(--bg-surface); padding: var(--space-md); min-height: 80px; position: relative;">
+<div style="font-weight: 600; color: var(--text-tertiary);">26</div>
+</div>
+<div style="background: var(--bg-surface); padding: var(--space-md); min-height: 80px; position: relative; border: 2px solid var(--mep-primary-500);">
+<div style="font-weight: 600; color: var(--text-primary);">27</div>
+<div style="background: var(--mep-error); color: white; font-size: var(--font-size-xs); padding: 2px 4px; border-radius: var(--radius-sm); margin-top: 4px;">2 urgentes</div>
+</div>
+<div style="background: var(--bg-surface); padding: var(--space-md); min-height: 80px; position: relative;">
+<div style="font-weight: 600; color: var(--text-primary);">28</div>
+<div style="background: var(--mep-warning); color: white; font-size: var(--font-size-xs); padding: 2px 4px; border-radius: var(--radius-sm); margin-top: 4px;">1 media</div>
+</div>
+<div style="background: var(--bg-surface); padding: var(--space-md); min-height: 80px; position: relative;">
+<div style="font-weight: 600; color: var(--text-primary);">29</div>
+</div>
+<div style="background: var(--bg-surface); padding: var(--space-md); min-height: 80px; position: relative;">
+<div style="font-weight: 600; color: var(--text-primary);">30</div>
+<div style="background: var(--mep-info); color: white; font-size: var(--font-size-xs); padding: 2px 4px; border-radius: var(--radius-sm); margin-top: 4px;">3 tareas</div>
+</div>
+<div style="background: var(--bg-surface); padding: var(--space-md); min-height: 80px; position: relative;">
+<div style="font-weight: 600; color: var(--text-primary);">31</div>
+</div>
+<div style="background: var(--bg-surface); padding: var(--space-md); min-height: 80px; position: relative;">
+<div style="font-weight: 600; color: var(--text-primary);">1</div>
+</div>
+</div>
+</div>
+
+
+<!-- Task Creation Modal (Hidden by default) -->
+<div id="create-task-modal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 1000; display: none; align-items: center; justify-content: center;">
+<div style="background: var(--bg-surface); border-radius: var(--radius-2xl); padding: var(--space-2xl); max-width: 600px; width: 90%; max-height: 90vh; overflow-y: auto;">
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-xl);">
+<h3 style="font-size: var(--font-size-2xl); font-weight: 800; color: var(--text-primary);">Nueva Tarea</h3>
+<button onclick="hideCreateTaskModal()" style="background: none; border: none; color: var(--text-tertiary); cursor: pointer; padding: var(--space-sm);">
+<i data-lucide="x" style="width: 24px; height: 24px;"></i>
+</button>
+</div>
+<div class="flex flex-col space-y-4">
+<div style="margin-bottom: var(--space-lg);">
+<label style="display: block; font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-sm);">Título de la tarea</label>
+<input placeholder="Escribe el título de la tarea..." style="width: 100%; padding: var(--space-md); border: 2px solid var(--border-primary); border-radius: var(--radius-lg); background: var(--bg-surface); color: var(--text-primary); font-size: var(--font-size-base);" type="text"/>
+</div>
+<div style="margin-bottom: var(--space-lg);">
+<label style="display: block; font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-sm);">Descripción</label>
+<textarea placeholder="Describe la tarea en detalle..." rows="4" style="width: 100%; padding: var(--space-md); border: 2px solid var(--border-primary); border-radius: var(--radius-lg); background: var(--bg-surface); color: var(--text-primary); font-size: var(--font-size-base); resize: vertical;"></textarea>
+</div>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg); margin-bottom: var(--space-lg);">
+<div>
+<label style="display: block; font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-sm);">Proyecto</label>
+<select style="width: 100%; padding: var(--space-md); border: 2px solid var(--border-primary); border-radius: var(--radius-lg); background: var(--bg-surface); color: var(--text-primary);">
+<option value="">Seleccionar proyecto...</option>
+<option value="mep-2025">MEP-2025</option>
+<option value="erp">Sistema ERP</option>
+<option value="cloud">Migración Cloud</option>
+<option value="general">General</option>
+</select>
+</div>
+<div>
+<label style="display: block; font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-sm);">Asignado a</label>
+<select style="width: 100%; padding: var(--space-md); border: 2px solid var(--border-primary); border-radius: var(--radius-lg); background: var(--bg-surface); color: var(--text-primary);">
+<option value="">Seleccionar persona...</option>
+<option value="enrique">Enrique (Yo)</option>
+<option value="ana">Ana López</option>
+<option value="carlos">Carlos Gómez</option>
+<option value="pedro">Pedro Sánchez</option>
+<option value="maria">María Rodríguez</option>
+</select>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: var(--space-lg); margin-bottom: var(--space-lg);">
+<div>
+<label style="display: block; font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-sm);">Prioridad</label>
+<select style="width: 100%; padding: var(--space-md); border: 2px solid var(--border-primary); border-radius: var(--radius-lg); background: var(--bg-surface); color: var(--text-primary);">
+<option value="low">Baja</option>
+<option selected="" value="medium">Media</option>
+<option value="high">Alta</option>
+</select>
+</div>
+<div>
+<label style="display: block; font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-sm);">Fecha límite</label>
+<input style="width: 100%; padding: var(--space-md); border: 2px solid var(--border-primary); border-radius: var(--radius-lg); background: var(--bg-surface); color: var(--text-primary);" type="date"/>
+</div>
+<div>
+<label style="display: block; font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-sm);">Estimación (horas)</label>
+<input max="100" min="0" placeholder="0" style="width: 100%; padding: var(--space-md); border: 2px solid var(--border-primary); border-radius: var(--radius-lg); background: var(--bg-surface); color: var(--text-primary);" type="number"/>
+</div>
+</div>
+<div style="margin-bottom: var(--space-xl);">
+<label style="display: block; font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-sm);">Etiquetas</label>
+<div style="display: flex; gap: var(--space-sm); flex-wrap: wrap;">
+<button onclick="toggleTag(this)" style="padding: var(--space-sm) var(--space-md); border: 2px solid var(--border-primary); border-radius: var(--radius-full); background: var(--bg-surface); color: var(--text-secondary); font-size: var(--font-size-sm); cursor: pointer; transition: all var(--transition-fast);" type="button">Frontend</button>
+<button onclick="toggleTag(this)" style="padding: var(--space-sm) var(--space-md); border: 2px solid var(--border-primary); border-radius: var(--radius-full); background: var(--bg-surface); color: var(--text-secondary); font-size: var(--font-size-sm); cursor: pointer; transition: all var(--transition-fast);" type="button">Backend</button>
+<button onclick="toggleTag(this)" style="padding: var(--space-sm) var(--space-md); border: 2px solid var(--border-primary); border-radius: var(--radius-full); background: var(--bg-surface); color: var(--text-secondary); font-size: var(--font-size-sm); cursor: pointer; transition: all var(--transition-fast);" type="button">Documentación</button>
+<button onclick="toggleTag(this)" style="padding: var(--space-sm) var(--space-md); border: 2px solid var(--border-primary); border-radius: var(--radius-full); background: var(--bg-surface); color: var(--text-secondary); font-size: var(--font-size-sm); cursor: pointer; transition: all var(--transition-fast);" type="button">Testing</button>
+<button onclick="toggleTag(this)" style="padding: var(--space-sm) var(--space-md); border: 2px solid var(--border-primary); border-radius: var(--radius-full); background: var(--bg-surface); color: var(--text-secondary); font-size: var(--font-size-sm); cursor: pointer; transition: all var(--transition-fast);" type="button">Reunión</button>
+</div>
+</div>
+<div style="display: flex; gap: var(--space-md); justify-content: flex-end;">
+<button class="btn btn-secondary" onclick="hideCreateTaskModal()" type="button">Cancelar</button>
+<button class="btn btn-primary" type="submit">Crear Tarea</button>
+</div>
+
+</div>
+</div>
+<script>
+// Task Management Functions
+function toggleTaskView(view) {
+    const listView = document.getElementById('list-view');
+    const kanbanView = document.getElementById('kanban-view');
+    const listBtn = document.getElementById('list-view-btn');
+    const kanbanBtn = document.getElementById('kanban-view-btn');
+
+    if (view === 'list') {
+        listView.classList.remove('hidden');
+        kanbanView.classList.add('hidden');
+        listBtn.style.background = 'var(--bg-sidebar-active)';
+        listBtn.style.color = 'var(--text-on-primary)';
+        kanbanBtn.style.background = 'transparent';
+        kanbanBtn.style.color = 'var(--text-secondary)';
+    } else {
+        listView.classList.add('hidden');
+        kanbanView.classList.remove('hidden');
+        kanbanBtn.style.background = 'var(--bg-sidebar-active)';
+        kanbanBtn.style.color = 'var(--text-on-primary)';
+        listBtn.style.background = 'transparent';
+        listBtn.style.color = 'var(--text-secondary)';
+    }
+}
+
+function toggleTaskComplete(checkbox) {
+    const isCompleted = checkbox.style.background.includes('var(--bg-sidebar-active)');
+    const taskItem = checkbox.closest('.task-item');
+    
+    if (isCompleted) {
+        checkbox.style.background = 'transparent';
+        checkbox.style.border = '2px solid var(--border-secondary)';
+        checkbox.innerHTML = '';
+        taskItem.classList.remove('completed');
+        taskItem.style.opacity = '1';
+        taskItem.querySelector('h5').style.textDecoration = 'none';
+    } else {
+        checkbox.style.background = 'var(--bg-sidebar-active)';
+        checkbox.style.border = '2px solid var(--mep-primary-500)';
+        checkbox.innerHTML = '<i data-lucide="check" style="width: 14px; height: 14px; color: white;"></i>';
+        taskItem.classList.add('completed');
+        taskItem.style.opacity = '0.7';
+        taskItem.querySelector('h5').style.textDecoration = 'line-through';
+        lucide.createIcons();
+    }
+}
+
+function showCreateTaskModal() {
+    document.getElementById('create-task-modal').style.display = 'flex';
+}
+
+function hideCreateTaskModal() {
+    document.getElementById('create-task-modal').style.display = 'none';
+}
+
+function toggleTag(button) {
+    const isSelected = button.style.background.includes('var(--bg-sidebar-active)');
+    
+    if (isSelected) {
+        button.style.background = 'var(--bg-surface)';
+        button.style.color = 'var(--text-secondary)';
+        button.style.borderColor = 'var(--border-primary)';
+    } else {
+        button.style.background = 'var(--bg-sidebar-active)';
+        button.style.color = 'var(--text-on-primary)';
+        button.style.borderColor = 'var(--mep-primary-500)';
+    }
+}
+
+function editTask(taskId) {
+    console.log('Editando tarea:', taskId);
+    // Aquí implementarías la lógica para editar la tarea
+}
+
+// Initialize task view
+document.addEventListener('DOMContentLoaded', function() {
+    toggleTaskView('list'); // Default to list view
+});
+</script>(--text-tertiary);"&gt;
+                                        <i data-lucide="calendar" style="width: 12px; height: 12px;"></i>
+                                        Hoy
+                                    </div>
+<div class="user-avatar" style="width: 24px; height: 24px; font-size: var(--font-size-xs);">A</div>
+
+
+<div class="kanban-task" style="background: var(--bg-surface); padding: var(--space-md); border-radius: var(--radius-lg); border: 1px solid var(--border-primary); cursor: grab;">
+<div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: var(--space-sm);">
+<span class="badge badge-warning">Media</span>
+<button class="btn btn-ghost" style="padding: 4px;">
+<i data-lucide="more-horizontal" style="width: 16px; height: 16px;"></i>
+</button>
+</div>
+<h5 style="font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-sm);">Actualizar documentación</h5>
+<p style="font-size: var(--font-size-sm); color: var(--text-secondary); margin-bottom: var(--space-md);">Documentar nuevos endpoints de API</p>
+<div style="display: flex; justify-content: space-between; align-items: center;">
+<div style="display: flex; align-items: center; gap: var(--space-xs); font-size: var(--font-size-xs); color: var(--text-tertiary);">
+<i data-lucide="calendar" style="width: 12px; height: 12px;"></i>
+                                        30 May
+                                    </div>
+<div class="user-avatar" style="width: 24px; height: 24px; font-size: var(--font-size-xs);">P</div>
+</div>
+</div>
+
+
+<!-- In Progress Column -->
+<div class="kanban-column" style="background: var(--bg-tertiary); padding: var(--space-lg); border-radius: var(--radius-xl);">
+<h4 style="font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-lg); display: flex; align-items: center; justify-content: space-between;">
+                            En Progreso
+                            <span class="badge" style="background: var(--mep-info); color: white;">5</span>
+</h4>
+<div class="space-y-4">
+<div class="kanban-task" style="background: var(--bg-surface); padding: var(--space-md); border-radius: var(--radius-lg); border: 1px solid var(--border-primary); cursor: grab;">
+<div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: var(--space-sm);">
+<span class="badge badge-danger">Alta</span>
+<button class="btn btn-ghost" style="padding: 4px;">
+<i data-lucide="more-horizontal" style="width: 16px; height: 16px;"></i>
+</button>
+</div>
+<h5 style="font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-sm);">Configurar servidor</h5>
+<p style="font-size: var(--font-size-sm); color: var(--text-secondary); margin-bottom: var(--space-md);">Setup servidor de producción</p>
+<div style="margin-bottom: var(--space-md);">
+<div style="display: flex; justify-content: space-between; margin-bottom: 4px; font-size: var(--font-size-xs);">
+<span style="color: var(--text-secondary);">Progreso</span>
+<span style="color: var(--text-primary); font-weight: 600;">60%</span>
+</div>
+<div class="progress-bar" style="height: 4px;">
+<div class="progress-fill" style="width: 60%;"></div>
+</div>
+</div>
+<div style="display: flex; justify-content: space-between; align-items: center;">
+<div style="display: flex; align-items: center; gap: var(--space-xs); font-size: var(--font-size-xs); color: var(--text-tertiary);">
+<i data-lucide="calendar" style="width: 12px; height: 12px;"></i>
+                                        Mañana
+                                    </div>
+<div class="user-avatar" style="width: 24px; height: 24px; font-size: var(--font-size-xs);">C</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Review Column -->
+<div class="kanban-column" style="background: var(--bg-tertiary); padding: var(--space-lg); border-radius: var(--radius-xl);">
+<h4 style="font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-lg); display: flex; align-items: center; justify-content: space-between;">
+                            En Revisión
+                            <span class="badge" style="background: var(--mep-warning); color: white;">3</span>
+</h4>
+<div class="space-y-4">
+<div class="kanban-task" style="background: var(--bg-surface); padding: var(--space-md); border-radius: var(--radius-lg); border: 1px solid var(--border-primary); cursor: grab;">
+<div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: var(--space-sm);">
+<span class="badge badge-warning">Media</span>
+<button class="btn btn-ghost" style="padding: 4px;">
+<i data-lucide="more-horizontal" style="width: 16px; height: 16px;"></i>
+</button>
+</div>
+<h5 style="font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-sm);">Diseño de interfaz</h5>
+<p style="font-size: var(--font-size-sm); color: var(--text-secondary); margin-bottom: var(--space-md);">Mockups para nueva funcionalidad</p>
+<div style="display: flex; justify-content: space-between; align-items: center;">
+<div style="display: flex; align-items: center; gap: var(--space-xs); font-size: var(--font-size-xs); color: var(--text-tertiary);">
+<i data-lucide="eye" style="width: 12px; height: 12px;"></i>
+                                        En revisión
+                                    </div>
+<div class="user-avatar" style="width: 24px; height: 24px; font-size: var(--font-size-xs);">M</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Done Column -->
+<div class="kanban-column" style="background: var(--bg-tertiary); padding: var(--space-lg); border-radius: var(--radius-xl);">
+<h4 style="font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-lg); display: flex; align-items: center; justify-content: space-between;">
+                            Completadas
+                            <span class="badge" style="background: var(--mep-success); color: white;">8</span>
+</h4>
+<div class="space-y-4">
+<div class="kanban-task" style="background: var(--bg-surface); padding: var(--space-md); border-radius: var(--radius-lg); border: 1px solid var(--border-primary); opacity: 0.8;">
+<div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: var(--space-sm);">
+<span class="badge badge-success">Completada</span>
+<i data-lucide="check-circle" style="width: 20px; height: 20px; color: var(--mep-success);"></i>
+</div>
+<h5 style="font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-sm);">Informe mensual</h5>
+<p style="font-size: var(--font-size-sm); color: var(--text-secondary); margin-bottom: var(--space-md);">Completado el 26 de Mayo</p>
+<div style="display: flex; justify-content: space-between; align-items: center;">
+                                    &lt;div style="display: flex; align-items: center; gap: var(--space-xs); font-size: var(--font-size-xs); color: var</div></div></div></div>

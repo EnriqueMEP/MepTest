@@ -1,0 +1,616 @@
+<head>
+
+
+
+
+
+
+
+</head>
+<button class="btn btn-ghost" onclick="event.stopPropagation(); editEmployee('maria-rodriguez')" style="padding: var(--space-sm);">
+<i data-lucide="edit-3" style="width: 16px; height: 16px;"></i>
+</button>
+
+
+
+
+
+<div style="text-align: center; padding: var(--space-xl);">
+<button class="btn btn-secondary">
+<i data-lucide="chevron-down" style="width: 18px; height: 18px;"></i>
+                        Cargar más empleados
+                    </button>
+</div>
+
+<!-- Right Sidebar -->
+<div class="space-y-6">
+<!-- Pending Requests -->
+<div class="card">
+<h3 style="font-size: var(--font-size-xl); font-weight: 800; color: var(--text-primary); margin-bottom: var(--space-xl);">Solicitudes Pendientes</h3>
+<div class="space-y-4">
+<div onmouseout="this.style.borderColor='var(--border-primary)'; this.style.transform='translateY(0)'" onmouseover="this.style.borderColor='var(--mep-primary-300)'; this.style.transform='translateY(-2px)'" style="padding: var(--space-lg); border: 1px solid var(--border-primary); border-radius: var(--radius-xl); transition: all var(--transition-fast); cursor: pointer;">
+<div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: var(--space-md);">
+<div style="display: flex; align-items: center; gap: var(--space-md);">
+<div style="width: 40px; height: 40px; background: linear-gradient(135deg, var(--mep-info), #1D4ED8); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;">A</div>
+<div>
+<h4 style="font-weight: 600; color: var(--text-primary); margin-bottom: 2px;">Ana López</h4>
+<p style="font-size: var(--font-size-sm); color: var(--text-secondary);">Solicitud de vacaciones</p>
+</div>
+</div>
+<span class="badge badge-warning">Pendiente</span>
+</div>
+<p style="font-size: var(--font-size-sm); color: var(--text-secondary); margin-bottom: var(--space-md);">5 días • 15-19 Junio 2025</p>
+<div style="display: flex; gap: var(--space-sm);">
+<button class="btn btn-primary" onclick="approveRequest('ana-vacation')" style="flex: 1; padding: var(--space-sm);">Aprobar</button>
+<button class="btn btn-secondary" onclick="rejectRequest('ana-vacation')" style="flex: 1; padding: var(--space-sm);">Rechazar</button>
+</div>
+</div>
+<div onmouseout="this.style.borderColor='var(--border-primary)'; this.style.transform='translateY(0)'" onmouseover="this.style.borderColor='var(--mep-primary-300)'; this.style.transform='translateY(-2px)'" style="padding: var(--space-lg); border: 1px solid var(--border-primary); border-radius: var(--radius-xl); transition: all var(--transition-fast); cursor: pointer;">
+<div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: var(--space-md);">
+<div style="display: flex; align-items: center; gap: var(--space-md);">
+<div style="width: 40px; height: 40px; background: linear-gradient(135deg, #8B5CF6, #7C3AED); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;">C</div>
+<div>
+<h4 style="font-weight: 600; color: var(--text-primary); margin-bottom: 2px;">Carlos Gómez</h4>
+<p style="font-size: var(--font-size-sm); color: var(--text-secondary);">Solicitud de permiso</p>
+</div>
+</div>
+<span class="badge badge-warning">Pendiente</span>
+</div>
+<p style="font-size: var(--font-size-sm); color: var(--text-secondary); margin-bottom: var(--space-md);">Cita médica • 30 Mayo 10:00</p>
+<div style="display: flex; gap: var(--space-sm);">
+<button class="btn btn-primary" onclick="approveRequest('carlos-medical')" style="flex: 1; padding: var(--space-sm);">Aprobar</button>
+<button class="btn btn-secondary" onclick="rejectRequest('carlos-medical')" style="flex: 1; padding: var(--space-sm);">Rechazar</button>
+</div>
+</div>
+<div onmouseout="this.style.borderColor='var(--border-primary)'; this.style.transform='translateY(0)'" onmouseover="this.style.borderColor='var(--mep-primary-300)'; this.style.transform='translateY(-2px)'" style="padding: var(--space-lg); border: 1px solid var(--border-primary); border-radius: var(--radius-xl); transition: all var(--transition-fast); cursor: pointer;">
+<div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: var(--space-md);">
+<div style="display: flex; align-items: center; gap: var(--space-md);">
+<div style="width: 40px; height: 40px; background: linear-gradient(135deg, var(--mep-success), #047857); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;">P</div>
+<div>
+<h4 style="font-weight: 600; color: var(--text-primary); margin-bottom: 2px;">Pedro Sánchez</h4>
+<p style="font-size: var(--font-size-sm); color: var(--text-secondary);">Solicitud de teletrabajo</p>
+</div>
+</div>
+<span class="badge badge-warning">Pendiente</span>
+</div>
+<p style="font-size: var(--font-size-sm); color: var(--text-secondary); margin-bottom: var(--space-md);">2 días semanales • Lunes y Viernes</p>
+<div style="display: flex; gap: var(--space-sm);">
+<button class="btn btn-primary" onclick="approveRequest('pedro-remote')" style="flex: 1; padding: var(--space-sm);">Aprobar</button>
+<button class="btn btn-secondary" onclick="rejectRequest('pedro-remote')" style="flex: 1; padding: var(--space-sm);">Rechazar</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Department Distribution -->
+<div class="card">
+<h3 style="font-size: var(--font-size-xl); font-weight: 800; color: var(--text-primary); margin-bottom: var(--space-xl);">Distribución por Departamento</h3>
+<div class="space-y-4">
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-sm);">
+<div style="display: flex; align-items: center; gap: var(--space-sm);">
+<div style="width: 12px; height: 12px; background: var(--mep-primary-500); border-radius: var(--radius-full);"></div>
+<span style="font-size: var(--font-size-sm); color: var(--text-primary); font-weight: 600;">Desarrollo</span>
+</div>
+<span style="font-size: var(--font-size-sm); font-weight: 700; color: var(--text-primary);">45</span>
+</div>
+<div class="progress-bar">
+<div class="progress-fill" style="width: 72%; background: var(--bg-sidebar-active);"></div>
+</div>
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-sm);">
+<div style="display: flex; align-items: center; gap: var(--space-sm);">
+<div style="width: 12px; height: 12px; background: var(--mep-info); border-radius: var(--radius-full);"></div>
+<span style="font-size: var(--font-size-sm); color: var(--text-primary); font-weight: 600;">Diseño</span>
+</div>
+<span style="font-size: var(--font-size-sm); font-weight: 700; color: var(--text-primary);">18</span>
+</div>
+<div class="progress-bar">
+<div class="progress-fill" style="width: 28%; background: linear-gradient(135deg, var(--mep-info), #1D4ED8);"></div>
+</div>
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-sm);">
+<div style="display: flex; align-items: center; gap: var(--space-sm);">
+<div style="width: 12px; height: 12px; background: var(--mep-warning); border-radius: var(--radius-full);"></div>
+<span style="font-size: var(--font-size-sm); color: var(--text-primary); font-weight: 600;">Marketing</span>
+</div>
+<span style="font-size: var(--font-size-sm); font-weight: 700; color: var(--text-primary);">23</span>
+</div>
+<div class="progress-bar">
+<div class="progress-fill" style="width: 37%; background: linear-gradient(135deg, var(--mep-warning), #EA580C);"></div>
+</div>
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-sm);">
+<div style="display: flex; align-items: center; gap: var(--space-sm);">
+<div style="width: 12px; height: 12px; background: #8B5CF6; border-radius: var(--radius-full);"></div>
+<span style="font-size: var(--font-size-sm); color: var(--text-primary); font-weight: 600;">Ventas</span>
+</div>
+<span style="font-size: var(--font-size-sm); font-weight: 700; color: var(--text-primary);">29</span>
+</div>
+<div class="progress-bar">
+<div class="progress-fill" style="width: 46%; background: linear-gradient(135deg, #8B5CF6, #7C3AED);"></div>
+</div>
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-sm);">
+<div style="display: flex; align-items: center; gap: var(--space-sm);">
+<div style="width: 12px; height: 12px; background: var(--mep-success); border-radius: var(--radius-full);"></div>
+<span style="font-size: var(--font-size-sm); color: var(--text-primary); font-weight: 600;">Administración</span>
+</div>
+<span style="font-size: var(--font-size-sm); font-weight: 700; color: var(--text-primary);">12</span>
+</div>
+<div class="progress-bar">
+<div class="progress-fill" style="width: 19%; background: linear-gradient(135deg, var(--mep-success), #047857);"></div>
+</div>
+</div>
+</div>
+<!-- Quick Actions -->
+<div class="card">
+<h3 style="font-size: var(--font-size-xl); font-weight: 800; color: var(--text-primary); margin-bottom: var(--space-xl);">Acciones Rápidas</h3>
+<div class="space-y-3">
+<button onclick="generatePayroll()" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='var(--shadow-lg)'" style="width: 100%; padding: var(--space-lg); background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(52, 211, 153, 0.05)); border: 1px solid rgba(16, 185, 129, 0.2); border-radius: var(--radius-xl); text-align: left; cursor: pointer; transition: all var(--transition-fast);">
+<div style="display: flex; align-items: center; gap: var(--space-md);">
+<div style="width: 40px; height: 40px; background: var(--bg-sidebar-active); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center;">
+<i data-lucide="calculator" style="width: 20px; height: 20px; color: white;"></i>
+</div>
+<div>
+<div style="font-weight: 700; color: var(--text-primary); margin-bottom: 2px;">Generar Nómina</div>
+<div style="font-size: var(--font-size-sm); color: var(--text-secondary);">Procesar nómina mensual</div>
+</div>
+</div>
+</button>
+<button onclick="scheduleInterview()" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='var(--shadow-lg)'" style="width: 100%; padding: var(--space-lg); background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(99, 102, 241, 0.05)); border: 1px solid rgba(59, 130, 246, 0.2); border-radius: var(--radius-xl); text-align: left; cursor: pointer; transition: all var(--transition-fast);">
+<div style="display: flex; align-items: center; gap: var(--space-md);">
+<div style="width: 40px; height: 40px; background: linear-gradient(135deg, var(--mep-info), #1D4ED8); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center;">
+<i data-lucide="calendar-plus" style="width: 20px; height: 20px; color: white;"></i>
+</div>
+<div>
+<div style="font-weight: 700; color: var(--text-primary); margin-bottom: 2px;">Programar Entrevista</div>
+<div style="font-size: var(--font-size-sm); color: var(--text-secondary);">Nueva entrevista de trabajo</div>
+</div>
+</div>
+</button>
+<button onclick="generateReport()" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='var(--shadow-lg)'" style="width: 100%; padding: var(--space-lg); background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(168, 85, 247, 0.05)); border: 1px solid rgba(139, 92, 246, 0.2); border-radius: var(--radius-xl); text-align: left; cursor: pointer; transition: all var(--transition-fast);">
+<div style="display: flex; align-items: center; gap: var(--space-md);">
+<div style="width: 40px; height: 40px; background: linear-gradient(135deg, #8B5CF6, #7C3AED); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center;">
+<i data-lucide="file-bar-chart" style="width: 20px; height: 20px; color: white;"></i>
+</div>
+<div>
+<div style="font-weight: 700; color: var(--text-primary); margin-bottom: 2px;">Informe de Rendimiento</div>
+<div style="font-size: var(--font-size-sm); color: var(--text-secondary);">Generar reporte mensual</div>
+</div>
+</div>
+</button>
+</div>
+</div>
+</div>
+
+<!-- Recent Activities -->
+<div class="card">
+<h3 style="font-size: var(--font-size-xl); font-weight: 800; color: var(--text-primary); margin-bottom: var(--space-xl);">Actividades Recientes</h3>
+<div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-xl);">
+<div style="display: flex; align-items: start; gap: var(--space-md);">
+<div style="width: 40px; height: 40px; background: var(--bg-sidebar-active); border-radius: var(--radius-full); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+<i data-lucide="user-plus" style="width: 20px; height: 20px; color: white;"></i>
+</div>
+<div>
+<p style="font-size: var(--font-size-base); color: var(--text-primary); margin-bottom: var(--space-xs); font-weight: 500;">
+                            Se unió <span style="font-weight: 700;">Laura Martín</span> al equipo de Marketing
+                        </p>
+<p style="font-size: var(--font-size-sm); color: var(--text-tertiary);">hace 2 horas</p>
+</div>
+</div>
+<div style="display: flex; align-items: start; gap: var(--space-md);">
+<div style="width: 40px; height: 40px; background: linear-gradient(135deg, var(--mep-info), #1D4ED8); border-radius: var(--radius-full); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+<i data-lucide="check-circle" style="width: 20px; height: 20px; color: white;"></i>
+</div>
+<div>
+<p style="font-size: var(--font-size-base); color: var(--text-primary); margin-bottom: var(--space-xs); font-weight: 500;">
+                            Aprobada solicitud de vacaciones de <span style="font-weight: 700;">Ana López</span>
+</p>
+<p style="font-size: var(--font-size-sm); color: var(--text-tertiary);">hace 5 horas</p>
+</div>
+</div>
+<div style="display: flex; align-items: start; gap: var(--space-md);">
+<div style="width: 40px; height: 40px; background: linear-gradient(135deg, var(--mep-warning), #EA580C); border-radius: var(--radius-full); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+<i data-lucide="calendar" style="width: 20px; height: 20px; color: white;"></i>
+</div>
+<div>
+<p style="font-size: var(--font-size-base); color: var(--text-primary); margin-bottom: var(--space-xs); font-weight: 500;">
+                            Entrevista programada con <span style="font-weight: 700;">Jorge Fernández</span>
+</p>
+<p style="font-size: var(--font-size-sm); color: var(--text-tertiary);">ayer</p>
+</div>
+</div>
+<div style="display: flex; align-items: start; gap: var(--space-md);">
+<div style="width: 40px; height: 40px; background: linear-gradient(135deg, #8B5CF6, #7C3AED); border-radius: var(--radius-full); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+<i data-lucide="file-text" style="width: 20px; height: 20px; color: white;"></i>
+</div>
+<div>
+<p style="font-size: var(--font-size-base); color: var(--text-primary); margin-bottom: var(--space-xs); font-weight: 500;">
+                            Generado informe de rendimiento del Q2
+                        </p>
+<p style="font-size: var(--font-size-sm); color: var(--text-tertiary);">hace 2 días</p>
+</div>
+</div>
+</div>
+</div>
+
+
+<!-- Add Employee Modal -->
+<div id="add-employee-modal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 1000; display: none; align-items: center; justify-content: center;">
+<div style="background: var(--bg-surface); border-radius: var(--radius-2xl); padding: var(--space-2xl); max-width: 700px; width: 90%; max-height: 90vh; overflow-y: auto;">
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-xl);">
+<h3 style="font-size: var(--font-size-2xl); font-weight: 800; color: var(--text-primary);">Nuevo Empleado</h3>
+<button onclick="hideAddEmployeeModal()" style="background: none; border: none; color: var(--text-tertiary); cursor: pointer; padding: var(--space-sm);">
+<i data-lucide="x" style="width: 24px; height: 24px;"></i>
+</button>
+</div>
+<div class="flex flex-col space-y-4">
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg); margin-bottom: var(--space-lg);">
+<div>
+<label style="display: block; font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-sm);">Nombre</label>
+<input placeholder="Nombre del empleado" style="width: 100%; padding: var(--space-md); border: 2px solid var(--border-primary); border-radius: var(--radius-lg); background: var(--bg-surface); color: var(--text-primary);" type="text"/>
+</div>
+<div>
+<label style="display: block; font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-sm);">Apellidos</label>
+<input placeholder="Apellidos del empleado" style="width: 100%; padding: var(--space-md); border: 2px solid var(--border-primary); border-radius: var(--radius-lg); background: var(--bg-surface); color: var(--text-primary);" type="text"/>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg); margin-bottom: var(--space-lg);">
+<div>
+<label style="display: block; font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-sm);">Email</label>
+<input placeholder="email@mep-projects.com" style="width: 100%; padding: var(--space-md); border: 2px solid var(--border-primary); border-radius: var(--radius-lg); background: var(--bg-surface); color: var(--text-primary);" type="email"/>
+</div>
+<div>
+<label style="display: block; font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-sm);">Teléfono</label>
+<input placeholder="+34 600 000 000" style="width: 100%; padding: var(--space-md); border: 2px solid var(--border-primary); border-radius: var(--radius-lg); background: var(--bg-surface); color: var(--text-primary);" type="tel"/>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: var(--space-lg); margin-bottom: var(--space-lg);">
+<div>
+<label style="display: block; font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-sm);">Puesto</label>
+<input placeholder="Ej: Desarrollador Frontend" style="width: 100%; padding: var(--space-md); border: 2px solid var(--border-primary); border-radius: var(--radius-lg); background: var(--bg-surface); color: var(--text-primary);" type="text"/>
+</div>
+<div>
+<label style="display: block; font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-sm);">Departamento</label>
+<select style="width: 100%; padding: var(--space-md); border: 2px solid var(--border-primary); border-radius: var(--radius-lg); background: var(--bg-surface); color: var(--text-primary);">
+<option value="">Seleccionar...</option>
+<option value="desarrollo">Desarrollo</option>
+<option value="diseno">Diseño</option>
+<option value="marketing">Marketing</option>
+<option value="ventas">Ventas</option>
+<option value="administracion">Administración</option>
+</select>
+</div>
+<div>
+<label style="display: block; font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-sm);">Salario</label>
+<input placeholder="45000" style="width: 100%; padding: var(--space-md); border: 2px solid var(--border-primary); border-radius: var(--radius-lg); background: var(--bg-surface); color: var(--text-primary);" type="number"/>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg); margin-bottom: var(--space-lg);">
+<div>
+<label style="display: block; font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-sm);">Fecha de inicio</label>
+<input style="width: 100%; padding: var(--space-md); border: 2px solid var(--border-primary); border-radius: var(--radius-lg); background: var(--bg-surface); color: var(--text-primary);" type="date"/>
+</div>
+<div>
+<label style="display: block; font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-sm);">Tipo de contrato</label>
+<select style="width: 100%; padding: var(--space-md); border: 2px solid var(--border-primary); border-radius: var(--radius-lg); background: var(--bg-surface); color: var(--text-primary);">
+<option value="indefinido">Indefinido</option>
+<option value="temporal">Temporal</option>
+<option value="practicas">Prácticas</option>
+<option value="freelance">Freelance</option>
+</select>
+</div>
+</div>
+<div style="margin-bottom: var(--space-xl);">
+<label style="display: block; font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-sm);">Habilidades (separadas por comas)</label>
+<input placeholder="JavaScript, React, Node.js, TypeScript..." style="width: 100%; padding: var(--space-md); border: 2px solid var(--border-primary); border-radius: var(--radius-lg); background: var(--bg-surface); color: var(--text-primary);" type="text"/>
+</div>
+<div style="display: flex; gap: var(--space-md); justify-content: flex-end;">
+<button class="btn btn-secondary" onclick="hideAddEmployeeModal()" type="button">Cancelar</button>
+<button class="btn btn-primary" type="submit">Crear Empleado</button>
+</div>
+
+</div>
+</div>
+<script>
+// RRHH Management Functions
+function showAddEmployeeModal() {
+    document.getElementById('add-employee-modal').style.display = 'flex';
+}
+
+function hideAddEmployeeModal() {
+    document.getElementById('add-employee-modal').style.display = 'none';
+}
+
+function showEmployeeDetails(employeeId) {
+    console.log('Showing details for employee:', employeeId);
+    // Aquí implementarías la lógica para mostrar detalles del empleado
+}
+
+function editEmployee(employeeId) {
+    console.log('Editing employee:', employeeId);
+    // Aquí implementarías la lógica para editar empleado
+}
+
+function sendMessage(employeeId) {
+    console.log('Sending message to:', employeeId);
+    // Aquí implementarías la lógica para enviar mensaje
+}
+
+function approveRequest(requestId) {
+    console.log('Approving request:', requestId);
+    showNotification('Solicitud Aprobada', 'La solicitud ha sido aprobada exitosamente', 'success');
+    // Aquí implementarías la lógica para aprobar solicitud
+}
+
+function rejectRequest(requestId) {
+    console.log('Rejecting request:', requestId);
+    showNotification('Solicitud Rechazada', 'La solicitud ha sido rechazada', 'error');
+    // Aquí implementarías la lógica para rechazar solicitud
+}
+
+function generatePayroll() {
+    console.log('Generating payroll...');
+    showNotification('Nómina', 'Generando nómina mensual...', 'info');
+    // Aquí implementarías la lógica para generar nómina
+}
+
+function scheduleInterview() {
+    console.log('Scheduling interview...');
+    showNotification('Entrevista', 'Programando nueva entrevista...', 'info');
+    // Aquí implementarías la lógica para programar entrevista
+}
+
+function generateReport() {
+    console.log('Generating performance report...');
+    showNotification('Informe', 'Generando informe de rendimiento...', 'info');
+    // Aquí implementarías la lógica para generar informe
+}
+</script><!-- RRHH MODULE - Reemplazar el contenido del div id="rrhh-module" -->
+<div class="module-content hidden" id="rrhh-module">
+<div class="space-y-6">
+<div class="flex items-center justify-between">
+<div>
+<h2 style="font-size: var(--font-size-3xl); font-weight: 800; color: var(--text-primary); margin-bottom: var(--space-xs);">Recursos Humanos</h2>
+<p style="color: var(--text-secondary); font-size: var(--font-size-lg); font-weight: 500;">Gestión integral del capital humano</p>
+</div>
+<div style="display: flex; gap: var(--space-md);">
+<button class="btn btn-secondary">
+<i data-lucide="download" style="width: 18px; height: 18px;"></i>
+                    Exportar
+                </button>
+<button class="btn btn-primary" onclick="showAddEmployeeModal()">
+<i data-lucide="user-plus" style="width: 18px; height: 18px;"></i>
+                    Nuevo Empleado
+                </button>
+</div>
+</div>
+<!-- Stats Cards -->
+<div class="grid grid-cols-4">
+<div class="stat-card">
+<div class="stat-header">
+<div class="stat-content">
+<h3>Total Empleados</h3>
+<p>127</p>
+<div class="stat-trend stat-trend-positive">
+<i data-lucide="trending-up" style="width: 16px; height: 16px;"></i>
+<span>+8 este trimestre</span>
+</div>
+</div>
+<div class="stat-icon" style="background: linear-gradient(135deg, var(--mep-info), #1D4ED8);">
+<i data-lucide="users" style="width: 28px; height: 28px;"></i>
+</div>
+</div>
+</div>
+<div class="stat-card">
+<div class="stat-header">
+<div class="stat-content">
+<h3>Nuevas Contrataciones</h3>
+<p>12</p>
+<div class="stat-trend stat-trend-positive">
+<i data-lucide="user-plus" style="width: 16px; height: 16px;"></i>
+<span>Este mes</span>
+</div>
+</div>
+<div class="stat-icon" style="background: var(--bg-sidebar-active);">
+<i data-lucide="user-plus" style="width: 28px; height: 28px;"></i>
+</div>
+</div>
+</div>
+<div class="stat-card">
+<div class="stat-header">
+<div class="stat-content">
+<h3>Solicitudes Pendientes</h3>
+<p>7</p>
+<div class="stat-trend stat-trend-neutral">
+<i data-lucide="clock" style="width: 16px; height: 16px;"></i>
+<span>Vacaciones y permisos</span>
+</div>
+</div>
+<div class="stat-icon" style="background: linear-gradient(135deg, var(--mep-warning), #EA580C);">
+<i data-lucide="calendar-clock" style="width: 28px; height: 28px;"></i>
+</div>
+</div>
+</div>
+<div class="stat-card">
+<div class="stat-header">
+<div class="stat-content">
+<h3>Retención</h3>
+<p>94.2%</p>
+<div class="stat-trend stat-trend-positive">
+<i data-lucide="heart" style="width: 16px; height: 16px;"></i>
+<span>Excelente retención</span>
+</div>
+</div>
+<div class="stat-icon" style="background: linear-gradient(135deg, #8B5CF6, #7C3AED);">
+<i data-lucide="heart" style="width: 28px; height: 28px;"></i>
+</div>
+</div>
+</div>
+</div>
+<!-- Main Content Grid -->
+<div class="grid" style="grid-template-columns: 2fr 1fr; gap: var(--space-2xl);">
+<!-- Employee List -->
+<div class="card">
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-xl);">
+<h3 style="font-size: var(--font-size-xl); font-weight: 800; color: var(--text-primary);">Directorio de Empleados</h3>
+<div style="display: flex; gap: var(--space-md); align-items: center;">
+<select style="padding: var(--space-sm) var(--space-md); border: 2px solid var(--border-primary); border-radius: var(--radius-lg); background: var(--bg-surface); color: var(--text-primary); font-size: var(--font-size-sm);">
+<option value="all">Todos los departamentos</option>
+<option value="desarrollo">Desarrollo</option>
+<option value="diseno">Diseño</option>
+<option value="marketing">Marketing</option>
+<option value="ventas">Ventas</option>
+<option value="administracion">Administración</option>
+</select>
+<div style="position: relative;">
+<input placeholder="Buscar empleados..." style="padding: var(--space-sm) var(--space-md) var(--space-sm) 36px; border: 2px solid var(--border-primary); border-radius: var(--radius-lg); background: var(--bg-surface); color: var(--text-primary); font-size: var(--font-size-sm); width: 240px;" type="text"/>
+<i data-lucide="search" style="position: absolute; left: var(--space-md); top: 50%; transform: translateY(-50%); width: 16px; height: 16px; color: var(--text-tertiary);"></i>
+</div>
+</div>
+</div>
+<div class="space-y-4">
+<!-- Employee Cards -->
+<div class="employee-card" onclick="showEmployeeDetails('ana-lopez')" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='var(--shadow-lg)'" style="display: flex; align-items: center; padding: var(--space-xl); background: var(--bg-tertiary); border-radius: var(--radius-xl); border: 1px solid var(--border-primary); transition: all var(--transition-normal); cursor: pointer;">
+<div style="position: relative; margin-right: var(--space-xl);">
+<div style="width: 64px; height: 64px; background: linear-gradient(135deg, var(--mep-info), #1D4ED8); border-radius: var(--radius-xl); display: flex; align-items: center; justify-content: center; color: white; font-weight: 800; font-size: var(--font-size-xl);">A</div>
+<div style="position: absolute; bottom: -4px; right: -4px; width: 20px; height: 20px; background: var(--mep-success); border: 4px solid var(--bg-tertiary); border-radius: var(--radius-full);"></div>
+</div>
+<div style="flex: 1;">
+<div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: var(--space-sm);">
+<div>
+<h4 style="font-weight: 700; color: var(--text-primary); font-size: var(--font-size-lg); margin-bottom: 2px;">Ana López García</h4>
+<p style="color: var(--text-secondary); font-size: var(--font-size-base); font-weight: 500;">Desarrolladora Frontend Senior</p>
+</div>
+<span class="badge badge-success">Activo</span>
+</div>
+<div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-lg); margin-bottom: var(--space-md);">
+<div>
+<span style="font-size: var(--font-size-xs); color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;">Departamento</span>
+<p style="font-size: var(--font-size-sm); color: var(--text-primary); font-weight: 600;">Desarrollo</p>
+</div>
+<div>
+<span style="font-size: var(--font-size-xs); color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;">Antigüedad</span>
+<p style="font-size: var(--font-size-sm); color: var(--text-primary); font-weight: 600;">3 años</p>
+</div>
+<div>
+<span style="font-size: var(--font-size-xs); color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;">Email</span>
+<p style="font-size: var(--font-size-sm); color: var(--text-primary); font-weight: 600;">ana.lopez@mep.com</p>
+</div>
+<div>
+<span style="font-size: var(--font-size-xs); color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;">Rendimiento</span>
+<div style="display: flex; align-items: center; gap: var(--space-xs);">
+<div style="background: var(--mep-success); width: 8px; height: 8px; border-radius: var(--radius-full);"></div>
+<span style="font-size: var(--font-size-sm); color: var(--text-primary); font-weight: 600;">Excelente</span>
+</div>
+</div>
+</div>
+<div style="display: flex; justify-content: space-between; align-items: center;">
+<div style="display: flex; gap: var(--space-sm);">
+<span style="background: rgba(16, 185, 129, 0.1); color: var(--mep-success); padding: 4px 8px; border-radius: var(--radius-sm); font-size: var(--font-size-xs); font-weight: 600;">React</span>
+<span style="background: rgba(59, 130, 246, 0.1); color: var(--mep-info); padding: 4px 8px; border-radius: var(--radius-sm); font-size: var(--font-size-xs); font-weight: 600;">TypeScript</span>
+<span style="background: rgba(139, 92, 246, 0.1); color: #8B5CF6; padding: 4px 8px; border-radius: var(--radius-sm); font-size: var(--font-size-xs); font-weight: 600;">UX/UI</span>
+</div>
+<div style="display: flex; gap: var(--space-sm);">
+<button class="btn btn-ghost" onclick="event.stopPropagation(); sendMessage('ana-lopez')" style="padding: var(--space-sm);">
+<i data-lucide="message-circle" style="width: 16px; height: 16px;"></i>
+</button>
+<button class="btn btn-ghost" onclick="event.stopPropagation(); editEmployee('ana-lopez')" style="padding: var(--space-sm);">
+<i data-lucide="edit-3" style="width: 16px; height: 16px;"></i>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="employee-card" onclick="showEmployeeDetails('carlos-gomez')" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='var(--shadow-lg)'" style="display: flex; align-items: center; padding: var(--space-xl); background: var(--bg-tertiary); border-radius: var(--radius-xl); border: 1px solid var(--border-primary); transition: all var(--transition-normal); cursor: pointer;">
+<div style="position: relative; margin-right: var(--space-xl);">
+<div style="width: 64px; height: 64px; background: linear-gradient(135deg, #8B5CF6, #7C3AED); border-radius: var(--radius-xl); display: flex; align-items: center; justify-content: center; color: white; font-weight: 800; font-size: var(--font-size-xl);">C</div>
+<div style="position: absolute; bottom: -4px; right: -4px; width: 20px; height: 20px; background: var(--mep-warning); border: 4px solid var(--bg-tertiary); border-radius: var(--radius-full);"></div>
+</div>
+<div style="flex: 1;">
+<div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: var(--space-sm);">
+<div>
+<h4 style="font-weight: 700; color: var(--text-primary); font-size: var(--font-size-lg); margin-bottom: 2px;">Carlos Gómez Ruiz</h4>
+<p style="color: var(--text-secondary); font-size: var(--font-size-base); font-weight: 500;">DevOps Engineer</p>
+</div>
+<span class="badge badge-success">Activo</span>
+</div>
+<div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-lg); margin-bottom: var(--space-md);">
+<div>
+<span style="font-size: var(--font-size-xs); color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;">Departamento</span>
+<p style="font-size: var(--font-size-sm); color: var(--text-primary); font-weight: 600;">Infraestructura</p>
+</div>
+<div>
+<span style="font-size: var(--font-size-xs); color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;">Antigüedad</span>
+<p style="font-size: var(--font-size-sm); color: var(--text-primary); font-weight: 600;">2 años</p>
+</div>
+<div>
+<span style="font-size: var(--font-size-xs); color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;">Email</span>
+<p style="font-size: var(--font-size-sm); color: var(--text-primary); font-weight: 600;">carlos.gomez@mep.com</p>
+</div>
+<div>
+<span style="font-size: var(--font-size-xs); color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;">Rendimiento</span>
+<div style="display: flex; align-items: center; gap: var(--space-xs);">
+<div style="background: var(--mep-success); width: 8px; height: 8px; border-radius: var(--radius-full);"></div>
+<span style="font-size: var(--font-size-sm); color: var(--text-primary); font-weight: 600;">Excelente</span>
+</div>
+</div>
+</div>
+<div style="display: flex; justify-content: space-between; align-items: center;">
+<div style="display: flex; gap: var(--space-sm);">
+<span style="background: rgba(245, 158, 11, 0.1); color: var(--mep-warning); padding: 4px 8px; border-radius: var(--radius-sm); font-size: var(--font-size-xs); font-weight: 600;">Docker</span>
+<span style="background: rgba(16, 185, 129, 0.1); color: var(--mep-success); padding: 4px 8px; border-radius: var(--radius-sm); font-size: var(--font-size-xs); font-weight: 600;">Kubernetes</span>
+<span style="background: rgba(239, 68, 68, 0.1); color: var(--mep-error); padding: 4px 8px; border-radius: var(--radius-sm); font-size: var(--font-size-xs); font-weight: 600;">AWS</span>
+</div>
+<div style="display: flex; gap: var(--space-sm);">
+<button class="btn btn-ghost" onclick="event.stopPropagation(); sendMessage('carlos-gomez')" style="padding: var(--space-sm);">
+<i data-lucide="message-circle" style="width: 16px; height: 16px;"></i>
+</button>
+<button class="btn btn-ghost" onclick="event.stopPropagation(); editEmployee('carlos-gomez')" style="padding: var(--space-sm);">
+<i data-lucide="edit-3" style="width: 16px; height: 16px;"></i>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="employee-card" onclick="showEmployeeDetails('maria-rodriguez')" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='var(--shadow-lg)'" style="display: flex; align-items: center; padding: var(--space-xl); background: var(--bg-tertiary); border-radius: var(--radius-xl); border: 1px solid var(--border-primary); transition: all var(--transition-normal); cursor: pointer;">
+<div style="position: relative; margin-right: var(--space-xl);">
+<div style="width: 64px; height: 64px; background: linear-gradient(135deg, var(--mep-warning), #EA580C); border-radius: var(--radius-xl); display: flex; align-items: center; justify-content: center; color: white; font-weight: 800; font-size: var(--font-size-xl);">M</div>
+<div style="position: absolute; bottom: -4px; right: -4px; width: 20px; height: 20px; background: var(--mep-success); border: 4px solid var(--bg-tertiary); border-radius: var(--radius-full);"></div>
+</div>
+<div style="flex: 1;">
+<div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: var(--space-sm);">
+<div>
+<h4 style="font-weight: 700; color: var(--text-primary); font-size: var(--font-size-lg); margin-bottom: 2px;">María Rodríguez Torres</h4>
+<p style="color: var(--text-secondary); font-size: var(--font-size-base); font-weight: 500;">Project Manager</p>
+</div>
+<span class="badge badge-success">Activo</span>
+</div>
+<div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-lg); margin-bottom: var(--space-md);">
+<div>
+<span style="font-size: var(--font-size-xs); color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;">Departamento</span>
+<p style="font-size: var(--font-size-sm); color: var(--text-primary); font-weight: 600;">Gestión</p>
+</div>
+<div>
+<span style="font-size: var(--font-size-xs); color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;">Antigüedad</span>
+<p style="font-size: var(--font-size-sm); color: var(--text-primary); font-weight: 600;">5 años</p>
+</div>
+<div>
+<span style="font-size: var(--font-size-xs); color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;">Email</span>
+<p style="font-size: var(--font-size-sm); color: var(--text-primary); font-weight: 600;">maria.rodriguez@mep.com</p>
+</div>
+<div>
+<span style="font-size: var(--font-size-xs); color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;">Rendimiento</span>
+<div style="display: flex; align-items: center; gap: var(--space-xs);">
+<div style="background: var(--mep-success); width: 8px; height: 8px; border-radius: var(--radius-full);"></div>
+<span style="font-size: var(--font-size-sm); color: var(--text-primary); font-weight: 600;">Excelente</span>
+</div>
+</div>
+</div>
+<div style="display: flex; justify-content: space-between; align-items: center;">
+<div style="display: flex; gap: var(--space-sm);">
+<span style="background: rgba(59, 130, 246, 0.1); color: var(--mep-info); padding: 4px 8px; border-radius: var(--radius-sm); font-size: var(--font-size-xs); font-weight: 600;">Scrum</span>
+<span style="background: rgba(16, 185, 129, 0.1); color: var(--mep-success); padding: 4px 8px; border-radius: var(--radius-sm); font-size: var(--font-size-xs); font-weight: 600;">Agile</span>
+<span style="background: rgba(139, 92, 246, 0.1); color: #8B5CF6; padding: 4px 8px; border-radius: var(--radius-sm); font-size: var(--font-size-xs); font-weight: 600;">Jira</span>
+</div>
+<div style="display: flex; gap: var(--space-sm);">
+<button class="btn btn-ghost" onclick="event.stopPropagation(); sendMessage('maria-rodriguez')" style="padding: var(--space-sm);">
+<i data-lucide="message-circle" style="width: 16px; height: 16px;"></i>
+</button>
+<button class="btn btn-ghost" onclick="event.stopPropagation(); editEmployee('maria-rodriguez')" style="padding: var(--space-sm);">
+                                        &lt;i data-lucide="edit-3" style="width: 16px;</button></div></div></div></div></div></div></div></div></div></div>

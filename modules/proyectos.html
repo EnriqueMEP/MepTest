@@ -1,0 +1,429 @@
+<html lang="es">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   MEP-Projects – Proyectos
+  </title>
+  <link href="css/styles.css" rel="stylesheet"/>
+  <script defer="" src="js/scripts.js">
+  </script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js">
+  </script>
+ </head>
+ <body data-theme="light">
+  <div class="app-container">
+   <aside class="sidebar" id="sidebar">
+    <!-- Logo Header -->
+    <div class="sidebar-header">
+     <a class="sidebar-logo" href="#">
+      <div class="sidebar-logo-icon">
+       <i data-lucide="zap">
+       </i>
+      </div>
+      <span class="sidebar-logo-text">
+       MEP-Projects
+      </span>
+     </a>
+    </div>
+    <!-- Navigation -->
+    <nav class="sidebar-nav">
+     <!-- Principal -->
+     <div class="sidebar-section">
+      <div class="sidebar-section-title">
+       Principal
+      </div>
+      <a class="sidebar-nav-item active" href="#" onclick="showModule('dashboard')">
+       <i class="sidebar-nav-icon" data-lucide="layout-dashboard">
+       </i>
+       <span class="sidebar-nav-text">
+        Dashboard
+       </span>
+      </a>
+      <a class="sidebar-nav-item" href="#" onclick="showModule('projects')">
+       <i class="sidebar-nav-icon" data-lucide="briefcase">
+       </i>
+       <span class="sidebar-nav-text">
+        Proyectos
+       </span>
+       <span class="sidebar-nav-badge">
+        24
+       </span>
+      </a>
+      <a class="sidebar-nav-item" href="#" onclick="showModule('tasks')">
+       <i class="sidebar-nav-icon" data-lucide="check-square">
+       </i>
+       <span class="sidebar-nav-text">
+        Tareas
+       </span>
+       <span class="sidebar-nav-badge">
+        12
+       </span>
+      </a>
+      <a class="sidebar-nav-item" href="#" onclick="showModule('chat')">
+       <i class="sidebar-nav-icon" data-lucide="message-circle">
+       </i>
+       <span class="sidebar-nav-text">
+        Chat
+       </span>
+       <span class="sidebar-nav-badge">
+        3
+       </span>
+      </a>
+     </div>
+     <!-- Módulos de Negocio -->
+     <div class="sidebar-section">
+      <div class="sidebar-section-title">
+       Módulos de Negocio
+      </div>
+      <a class="sidebar-nav-item" href="#" onclick="showModule('crm')">
+       <i class="sidebar-nav-icon" data-lucide="users">
+       </i>
+       <span class="sidebar-nav-text">
+        CRM
+       </span>
+      </a>
+      <a class="sidebar-nav-item" href="#" onclick="showModule('erp')">
+       <i class="sidebar-nav-icon" data-lucide="bar-chart-3">
+       </i>
+       <span class="sidebar-nav-text">
+        ERP
+       </span>
+      </a>
+      <a class="sidebar-nav-item" href="#" onclick="showModule('rrhh')">
+       <i class="sidebar-nav-icon" data-lucide="user-check">
+       </i>
+       <span class="sidebar-nav-text">
+        RRHH
+       </span>
+      </a>
+      <a class="sidebar-nav-item" href="#" onclick="showModule('inventory')">
+       <i class="sidebar-nav-icon" data-lucide="package">
+       </i>
+       <span class="sidebar-nav-text">
+        Inventario
+       </span>
+      </a>
+     </div>
+     <!-- Administración -->
+     <div class="sidebar-section">
+      <div class="sidebar-section-title">
+       Administración
+      </div>
+      <a class="sidebar-nav-item" href="#" onclick="showModule('settings')">
+       <i class="sidebar-nav-icon" data-lucide="settings">
+       </i>
+       <span class="sidebar-nav-text">
+        Configuración
+       </span>
+      </a>
+      <a class="sidebar-nav-item" href="#" onclick="showModule('users')">
+       <i class="sidebar-nav-icon" data-lucide="shield-check">
+       </i>
+       <span class="sidebar-nav-text">
+        Usuarios
+       </span>
+      </a>
+      <a class="sidebar-nav-item" href="#" onclick="showModule('support')">
+       <i class="sidebar-nav-icon" data-lucide="help-circle">
+       </i>
+       <span class="sidebar-nav-text">
+        Soporte
+       </span>
+      </a>
+     </div>
+    </nav>
+    <!-- User Profile Footer -->
+    <div class="sidebar-footer">
+     <div class="user-profile" onclick="toggleDropdown('user')">
+      <div class="user-avatar">
+       E
+      </div>
+      <div class="user-info">
+       <div class="user-name">
+        Enrique
+       </div>
+       <div class="user-role">
+        Administrador
+       </div>
+      </div>
+      <button onmouseout="this.style.color='var(--mep-gray-400)'" onmouseover="this.style.color='var(--text-inverse)'" style="background: none; border: none; color: var(--mep-gray-400); cursor: pointer; transition: color var(--transition-fast);">
+       <i data-lucide="more-horizontal" style="width: 20px; height: 20px;">
+       </i>
+      </button>
+     </div>
+    </div>
+   </aside>
+   <main class="main-content" id="mainContent">
+    <header class="header">
+     <div class="header-left">
+      <button class="sidebar-toggle" onclick="toggleSidebar()">
+       <i data-lucide="menu" style="width: 20px; height: 20px;">
+       </i>
+      </button>
+      <div>
+       <h1 class="header-title" id="pageTitle">
+        Dashboard
+       </h1>
+       <p class="header-subtitle">
+        Bienvenido, Enrique • Martes, 27 Mayo 2025
+       </p>
+      </div>
+     </div>
+     <div class="header-right">
+      <!-- Search Premium -->
+      <div class="search-container">
+       <input class="search-input" placeholder="Buscar proyectos, clientes, tareas..." type="text"/>
+       <i class="search-icon" data-lucide="search">
+       </i>
+      </div>
+      <!-- Notifications -->
+      <div class="dropdown">
+       <button class="btn btn-ghost" onclick="toggleDropdown('notifications')" style="position: relative;">
+        <i data-lucide="bell" style="width: 20px; height: 20px;">
+        </i>
+        <span class="notification-badge">
+         3
+        </span>
+       </button>
+       <div class="dropdown-menu" id="notifications-menu">
+        <div class="dropdown-header">
+         <h3 class="dropdown-title">
+          Notificaciones
+         </h3>
+         <span class="badge badge-primary">
+          3 nuevas
+         </span>
+        </div>
+        <div>
+         <div class="notification-item">
+          <div class="notification-icon" style="background: linear-gradient(135deg, var(--mep-primary-500), var(--mep-primary-600));">
+           <i data-lucide="message-circle" style="width: 20px; height: 20px; color: white;">
+           </i>
+          </div>
+          <div class="notification-content">
+           <div class="notification-title">
+            Ana López
+           </div>
+           <div class="notification-text">
+            Nuevo comentario en proyecto MEP-2025
+           </div>
+           <div class="notification-time">
+            hace 10 min
+           </div>
+          </div>
+         </div>
+         <div class="notification-item">
+          <div class="notification-icon" style="background: linear-gradient(135deg, var(--mep-info), #1D4ED8);">
+           <i data-lucide="check-square" style="width: 20px; height: 20px; color: white;">
+           </i>
+          </div>
+          <div class="notification-content">
+           <div class="notification-title">
+            Tarea completada
+           </div>
+           <div class="notification-text">
+            Carlos completó "Diseño de mockups"
+           </div>
+           <div class="notification-time">
+            hace 2 horas
+           </div>
+          </div>
+         </div>
+         <div class="notification-item">
+          <div class="notification-icon" style="background: linear-gradient(135deg, var(--mep-warning), #EA580C);">
+           <i data-lucide="alert-triangle" style="width: 20px; height: 20px; color: white;">
+           </i>
+          </div>
+          <div class="notification-content">
+           <div class="notification-title">
+            Fecha límite próxima
+           </div>
+           <div class="notification-text">
+            Sistema ERP vence en 2 días
+           </div>
+           <div class="notification-time">
+            hace 3 horas
+           </div>
+          </div>
+         </div>
+        </div>
+        <div style="padding-top: var(--space-lg); border-top: 1px solid var(--border-primary); text-align: center; margin-top: var(--space-lg);">
+         <a class="btn btn-ghost" href="#" style="width: 100%;">
+          Ver todas las notificaciones
+         </a>
+        </div>
+       </div>
+      </div>
+      <!-- User Menu -->
+      <div class="dropdown">
+       <button class="btn btn-ghost" onclick="toggleDropdown('user')" style="gap: var(--space-sm);">
+        <div class="user-avatar" style="width: 36px; height: 36px; font-size: var(--font-size-sm);">
+         E
+        </div>
+        <i data-lucide="chevron-down" style="width: 16px; height: 16px;">
+        </i>
+       </button>
+       <div class="dropdown-menu" id="user-menu" style="min-width: 280px;">
+        <div class="dropdown-header">
+         <div>
+          <div style="font-weight: 700; font-size: var(--font-size-base);">
+           Enrique
+          </div>
+          <div style="font-size: var(--font-size-sm); color: var(--text-secondary);">
+           admin@mep-projects.com
+          </div>
+         </div>
+        </div>
+        <div style="padding: var(--space-sm);">
+         <a href="#" onmouseout="this.style.background='transparent'" onmouseover="this.style.background='var(--bg-tertiary)'" style="display: flex; align-items: center; gap: var(--space-md); padding: var(--space-md); border-radius: var(--radius-lg); color: var(--text-primary); text-decoration: none; font-size: var(--font-size-sm); font-weight: 500; transition: background-color var(--transition-fast);">
+          <i data-lucide="user" style="width: 18px; height: 18px;">
+          </i>
+          Mi Perfil
+         </a>
+         <a href="#" onclick="showModule('settings')" onmouseout="this.style.background='transparent'" onmouseover="this.style.background='var(--bg-tertiary)'" style="display: flex; align-items: center; gap: var(--space-md); padding: var(--space-md); border-radius: var(--radius-lg); color: var(--text-primary); text-decoration: none; font-size: var(--font-size-sm); font-weight: 500; transition: background-color var(--transition-fast);">
+          <i data-lucide="settings" style="width: 18px; height: 18px;">
+          </i>
+          Configuración
+         </a>
+         <a href="#" onclick="toggleTheme()" onmouseout="this.style.background='transparent'" onmouseover="this.style.background='var(--bg-tertiary)'" style="display: flex; align-items: center; gap: var(--space-md); padding: var(--space-md); border-radius: var(--radius-lg); color: var(--text-primary); text-decoration: none; font-size: var(--font-size-sm); font-weight: 500; transition: background-color var(--transition-fast);">
+          <i data-lucide="moon" id="theme-icon-menu" style="width: 18px; height: 18px;">
+          </i>
+          <span id="theme-text">
+           Modo Oscuro
+          </span>
+         </a>
+         <a href="#" onmouseout="this.style.background='transparent'" onmouseover="this.style.background='var(--bg-tertiary)'" style="display: flex; align-items: center; gap: var(--space-md); padding: var(--space-md); border-radius: var(--radius-lg); color: var(--text-primary); text-decoration: none; font-size: var(--font-size-sm); font-weight: 500; transition: background-color var(--transition-fast);">
+          <i data-lucide="help-circle" style="width: 18px; height: 18px;">
+          </i>
+          Ayuda
+         </a>
+         <div style="height: 1px; background: var(--border-primary); margin: var(--space-md) 0;">
+         </div>
+         <a href="#" onmouseout="this.style.background='transparent'" onmouseover="this.style.background='rgba(239, 68, 68, 0.1)'" style="display: flex; align-items: center; gap: var(--space-md); padding: var(--space-md); border-radius: var(--radius-lg); color: var(--mep-error); text-decoration: none; font-size: var(--font-size-sm); font-weight: 500; transition: background-color var(--transition-fast);">
+          <i data-lucide="log-out" style="width: 18px; height: 18px;">
+          </i>
+          Cerrar Sesión
+         </a>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <div class="p-8" id="pageContent">
+     <div class="module-content hidden" id="projects-module">
+      <div class="space-y-6">
+       <div class="flex items-center justify-between">
+        <div>
+         <h2 style="font-size: var(--font-size-3xl); font-weight: 800; color: var(--text-primary); margin-bottom: var(--space-xs);">
+          Proyectos
+         </h2>
+         <p style="color: var(--text-secondary); font-size: var(--font-size-lg); font-weight: 500;">
+          Gestiona todos tus proyectos activos
+         </p>
+        </div>
+        <button class="btn btn-primary">
+         <i data-lucide="plus" style="width: 18px; height: 18px;">
+         </i>
+         Nuevo Proyecto
+        </button>
+       </div>
+       <div class="grid grid-cols-3">
+        <div class="card">
+         <h3 style="font-size: var(--font-size-xl); font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-lg);">
+          Diseño Portal Web MEP-2025
+         </h3>
+         <p style="color: var(--text-secondary); margin-bottom: var(--space-lg);">
+          Desarrollo del nuevo portal web corporativo con tecnologías modernas.
+         </p>
+         <div style="margin-bottom: var(--space-lg);">
+          <div style="display: flex; justify-content: space-between; margin-bottom: var(--space-sm);">
+           <span style="font-size: var(--font-size-sm); color: var(--text-secondary);">
+            Progreso
+           </span>
+           <span style="font-size: var(--font-size-sm); font-weight: 700;">
+            75%
+           </span>
+          </div>
+          <div class="progress-bar">
+           <div class="progress-fill" style="width: 75%;">
+           </div>
+          </div>
+         </div>
+         <div style="display: flex; justify-content: space-between; align-items: center;">
+          <span class="badge badge-danger">
+           Alta Prioridad
+          </span>
+          <span style="font-size: var(--font-size-sm); color: var(--text-tertiary);">
+           Vence: 15 Jun
+          </span>
+         </div>
+        </div>
+        <div class="card">
+         <h3 style="font-size: var(--font-size-xl); font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-lg);">
+          Implementación ERP
+         </h3>
+         <p style="color: var(--text-secondary); margin-bottom: var(--space-lg);">
+          Sistema ERP para la gestión integral de la empresa manufacturera.
+         </p>
+         <div style="margin-bottom: var(--space-lg);">
+          <div style="display: flex; justify-content: space-between; margin-bottom: var(--space-sm);">
+           <span style="font-size: var(--font-size-sm); color: var(--text-secondary);">
+            Progreso
+           </span>
+           <span style="font-size: var(--font-size-sm); font-weight: 700;">
+            45%
+           </span>
+          </div>
+          <div class="progress-bar">
+           <div class="progress-fill" style="width: 45%;">
+           </div>
+          </div>
+         </div>
+         <div style="display: flex; justify-content: space-between; align-items: center;">
+          <span class="badge badge-warning">
+           Media Prioridad
+          </span>
+          <span style="font-size: var(--font-size-sm); color: var(--text-tertiary);">
+           Vence: 30 Jul
+          </span>
+         </div>
+        </div>
+        <div class="card">
+         <h3 style="font-size: var(--font-size-xl); font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-lg);">
+          Migración Cloud
+         </h3>
+         <p style="color: var(--text-secondary); margin-bottom: var(--space-lg);">
+          Migración completa de servidores locales a infraestructura cloud.
+         </p>
+         <div style="margin-bottom: var(--space-lg);">
+          <div style="display: flex; justify-content: space-between; margin-bottom: var(--space-sm);">
+           <span style="font-size: var(--font-size-sm); color: var(--text-secondary);">
+            Progreso
+           </span>
+           <span style="font-size: var(--font-size-sm); font-weight: 700;">
+            90%
+           </span>
+          </div>
+          <div class="progress-bar">
+           <div class="progress-fill" style="width: 90%;">
+           </div>
+          </div>
+         </div>
+         <div style="display: flex; justify-content: space-between; align-items: center;">
+          <span class="badge badge-success">
+           Casi Completado
+          </span>
+          <span style="font-size: var(--font-size-sm); color: var(--text-tertiary);">
+           Vence: 5 Jun
+          </span>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </main>
+  </div>
+ </body>
+</html>

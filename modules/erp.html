@@ -1,0 +1,733 @@
+
+<head>
+
+
+
+
+
+
+
+</head>
+<div style="position: absolute; top: -24px; left: 50%; transform: translateX(-50%); font-size: var(--font-size-xs); font-weight: 600; color: var(--text-primary);">€592K</div>
+
+<div style="font-size: var(--font-size-xs); color: var(--text-secondary); font-weight: 600;">Feb</div>
+
+<div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: var(--space-xs);">
+<div style="width: 100%; height: 160px; background: linear-gradient(180deg, var(--mep-success), #047857); border-radius: var(--radius-sm); position: relative; animation: growUp 2.4s ease-out;">
+<div style="position: absolute; top: -24px; left: 50%; transform: translateX(-50%); font-size: var(--font-size-xs); font-weight: 600; color: var(--text-primary);">€445K</div>
+</div>
+<div style="font-size: var(--font-size-xs); color: var(--text-secondary); font-weight: 600;">Mar</div>
+</div>
+<!-- Spacer -->
+<div style="width: 20px;"></div>
+<!-- Expense Bars -->
+<div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: var(--space-xs);">
+<div style="width: 100%; height: 120px; background: linear-gradient(180deg, var(--mep-error), #DC2626); border-radius: var(--radius-sm); position: relative; animation: growUp 2s ease-out;">
+<div style="position: absolute; top: -24px; left: 50%; transform: translateX(-50%); font-size: var(--font-size-xs); font-weight: 600; color: var(--text-primary);">€298K</div>
+</div>
+<div style="font-size: var(--font-size-xs); color: var(--text-secondary); font-weight: 600;">Ene</div>
+</div>
+<div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: var(--space-xs);">
+<div style="width: 100%; height: 140px; background: linear-gradient(180deg, var(--mep-error), #DC2626); border-radius: var(--radius-sm); position: relative; animation: growUp 2.2s ease-out;">
+<div style="position: absolute; top: -24px; left: 50%; transform: translateX(-50%); font-size: var(--font-size-xs); font-weight: 600; color: var(--text-primary);">€356K</div>
+</div>
+<div style="font-size: var(--font-size-xs); color: var(--text-secondary); font-weight: 600;">Feb</div>
+</div>
+<div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: var(--space-xs);">
+<div style="width: 100%; height: 110px; background: linear-gradient(180deg, var(--mep-error), #DC2626); border-radius: var(--radius-sm); position: relative; animation: growUp 2.4s ease-out;">
+<div style="position: absolute; top: -24px; left: 50%; transform: translateX(-50%); font-size: var(--font-size-xs); font-weight: 600; color: var(--text-primary);">€289K</div>
+</div>
+<div style="font-size: var(--font-size-xs); color: var(--text-secondary); font-weight: 600;">Mar</div>
+</div>
+
+<!-- Chart Legend -->
+<div style="position: absolute; top: var(--space-lg); right: var(--space-lg); display: flex; gap: var(--space-lg);">
+<div style="display: flex; align-items: center; gap: var(--space-xs);">
+<div style="width: 12px; height: 12px; background: var(--mep-success); border-radius: var(--radius-sm);"></div>
+<span style="font-size: var(--font-size-xs); color: var(--text-primary); font-weight: 600;">Ingresos</span>
+</div>
+<div style="display: flex; align-items: center; gap: var(--space-xs);">
+<div style="width: 12px; height: 12px; background: var(--mep-error); border-radius: var(--radius-sm);"></div>
+<span style="font-size: var(--font-size-xs); color: var(--text-primary); font-weight: 600;">Gastos</span>
+</div>
+</div>
+
+
+<!-- Profit Margin Analysis -->
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-xl);">
+<div>
+<h4 style="font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-lg);">Margen de Beneficio</h4>
+<div style="text-align: center; padding: var(--space-2xl); background: var(--bg-tertiary); border-radius: var(--radius-xl); position: relative;">
+<!-- Circular Progress -->
+<div style="position: relative; display: inline-block;">
+<svg height="120" style="transform: rotate(-90deg);" width="120">
+<circle cx="60" cy="60" fill="none" r="50" stroke="var(--border-primary)" stroke-width="8"></circle>
+<circle cx="60" cy="60" fill="none" r="50" stroke="var(--mep-success)" stroke-dasharray="314" stroke-dashoffset="63" stroke-width="8" style="transition: stroke-dashoffset 2s ease-out; stroke-linecap: round;"></circle>
+</svg>
+<div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+<div style="font-size: var(--font-size-3xl); font-weight: 900; color: var(--mep-success);">38.5%</div>
+<div style="font-size: var(--font-size-xs); color: var(--text-secondary);">Este trimestre</div>
+</div>
+</div>
+<div style="margin-top: var(--space-lg);">
+<div style="display: flex; justify-content: space-between; font-size: var(--font-size-sm); margin-bottom: var(--space-sm);">
+<span style="color: var(--text-secondary);">Meta:</span>
+<span style="color: var(--text-primary); font-weight: 600;">35%</span>
+</div>
+<div style="display: flex; justify-content: space-between; font-size: var(--font-size-sm);">
+<span style="color: var(--text-secondary);">Año anterior:</span>
+<span style="color: var(--text-primary); font-weight: 600;">32.1%</span>
+</div>
+</div>
+</div>
+</div>
+<div>
+<h4 style="font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-lg);">Flujo de Caja</h4>
+<div style="background: var(--bg-tertiary); border-radius: var(--radius-xl); padding: var(--space-lg);">
+<div style="margin-bottom: var(--space-lg);">
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-sm);">
+<span style="color: var(--text-secondary);">Efectivo disponible</span>
+<span style="font-weight: 700; color: var(--mep-success); font-size: var(--font-size-lg);">€186,780</span>
+</div>
+<div class="progress-bar">
+<div class="progress-fill" style="width: 75%;"></div>
+</div>
+</div>
+<div class="flex flex-col space-y-3">
+<div style="display: flex; justify-content: space-between; font-size: var(--font-size-sm);">
+<span style="color: var(--text-secondary);">Cuentas por cobrar:</span>
+<span style="color: var(--mep-warning); font-weight: 600;">€124,500</span>
+</div>
+<div style="display: flex; justify-content: space-between; font-size: var(--font-size-sm);">
+<span style="color: var(--text-secondary);">Cuentas por pagar:</span>
+<span style="color: var(--mep-error); font-weight: 600;">€89,200</span>
+</div>
+<div style="display: flex; justify-content: space-between; font-size: var(--font-size-sm); padding-top: var(--space-sm); border-top: 1px solid var(--border-primary);">
+<span style="color: var(--text-primary); font-weight: 600;">Flujo neto proyectado:</span>
+<span style="color: var(--mep-success); font-weight: 700;">€222,080</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Right Panel: KPIs and Quick Actions -->
+<div class="space-y-6">
+<!-- Real-time KPIs -->
+<div class="card">
+<h3 style="font-size: var(--font-size-xl); font-weight: 800; color: var(--text-primary); margin-bottom: var(--space-xl);">KPIs en Tiempo Real</h3>
+<div class="space-y-4">
+<div style="padding: var(--space-lg); border: 1px solid var(--border-primary); border-radius: var(--radius-xl); background: linear-gradient(135deg, rgba(16, 185, 129, 0.05), rgba(52, 211, 153, 0.02));">
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-md);">
+<h4 style="font-weight: 600; color: var(--text-primary);">Ventas Hoy</h4>
+<div style="background: var(--mep-success); color: white; padding: 4px 8px; border-radius: var(--radius-full); font-size: var(--font-size-xs); font-weight: 700; animation: pulse 2s infinite;">LIVE</div>
+</div>
+<div style="font-size: var(--font-size-2xl); font-weight: 900; color: var(--mep-success); margin-bottom: var(--space-sm);">€12,847</div>
+<div style="display: flex; align-items: center; gap: var(--space-sm);">
+<i data-lucide="trending-up" style="width: 14px; height: 14px; color: var(--mep-success);"></i>
+<span style="font-size: var(--font-size-sm); color: var(--mep-success); font-weight: 600;">+24% vs ayer</span>
+</div>
+</div>
+<div style="padding: var(--space-lg); border: 1px solid var(--border-primary); border-radius: var(--radius-xl);">
+<h4 style="font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-md);">Pedidos Procesados</h4>
+<div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--space-sm);">
+<span style="font-size: var(--font-size-2xl); font-weight: 900; color: var(--text-primary);">47</span>
+<div style="text-align: right;">
+<div style="font-size: var(--font-size-sm); color: var(--mep-info); font-weight: 600;">92%</div>
+<div style="font-size: var(--font-size-xs); color: var(--text-tertiary);">Eficiencia</div>
+</div>
+</div>
+<div class="progress-bar">
+<div class="progress-fill" style="width: 92%; background: linear-gradient(135deg, var(--mep-info), #1D4ED8);"></div>
+</div>
+</div>
+<div style="padding: var(--space-lg); border: 1px solid var(--border-primary); border-radius: var(--radius-xl);">
+<h4 style="font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-md);">Tiempo Respuesta</h4>
+<div style="display: flex; align-items: baseline; gap: var(--space-sm); margin-bottom: var(--space-sm);">
+<span style="font-size: var(--font-size-2xl); font-weight: 900; color: var(--text-primary);">2.3</span>
+<span style="font-size: var(--font-size-sm); color: var(--text-secondary);">minutos promedio</span>
+</div>
+<div style="display: flex; justify-content: space-between; font-size: var(--font-size-xs);">
+<span style="color: var(--text-tertiary);">Meta: 3.0 min</span>
+<span style="color: var(--mep-success); font-weight: 600;">-23% mejor</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Alert Center -->
+<div class="card">
+<h3 style="font-size: var(--font-size-xl); font-weight: 800; color: var(--text-primary); margin-bottom: var(--space-xl);">Centro de Alertas</h3>
+<div class="space-y-3">
+<div style="padding: var(--space-md); border: 1px solid var(--mep-warning); border-radius: var(--radius-lg); background: rgba(245, 158, 11, 0.05);">
+<div style="display: flex; align-items: start; gap: var(--space-md);">
+<div style="background: var(--mep-warning); color: white; padding: var(--space-sm); border-radius: var(--radius-lg); flex-shrink: 0;">
+<i data-lucide="alert-triangle" style="width: 16px; height: 16px;"></i>
+</div>
+<div>
+<h4 style="font-weight: 600; color: var(--text-primary); margin-bottom: 2px;">Stock Bajo</h4>
+<p style="font-size: var(--font-size-sm); color: var(--text-secondary);">3 productos requieren reabastecimiento urgente</p>
+</div>
+</div>
+</div>
+<div style="padding: var(--space-md); border: 1px solid var(--mep-info); border-radius: var(--radius-lg); background: rgba(59, 130, 246, 0.05);">
+<div style="display: flex; align-items: start; gap: var(--space-md);">
+<div style="background: var(--mep-info); color: white; padding: var(--space-sm); border-radius: var(--radius-lg); flex-shrink: 0;">
+<i data-lucide="clock" style="width: 16px; height: 16px;"></i>
+</div>
+<div>
+<h4 style="font-weight: 600; color: var(--text-primary); margin-bottom: 2px;">Facturas Vencidas</h4>
+<p style="font-size: var(--font-size-sm); color: var(--text-secondary);">5 facturas pendientes de cobro</p>
+</div>
+</div>
+</div>
+<div style="padding: var(--space-md); border: 1px solid var(--mep-success); border-radius: var(--radius-lg); background: rgba(16, 185, 129, 0.05);">
+<div style="display: flex; align-items: start; gap: var(--space-md);">
+<div style="background: var(--mep-success); color: white; padding: var(--space-sm); border-radius: var(--radius-lg); flex-shrink: 0;">
+<i data-lucide="check-circle" style="width: 16px; height: 16px;"></i>
+</div>
+<div>
+<h4 style="font-weight: 600; color: var(--text-primary); margin-bottom: 2px;">Meta Alcanzada</h4>
+<p style="font-size: var(--font-size-sm); color: var(--text-secondary);">Objetivo de ventas Q2 cumplido</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Actions -->
+<div class="card">
+<h3 style="font-size: var(--font-size-xl); font-weight: 800; color: var(--text-primary); margin-bottom: var(--space-xl);">Acciones Rápidas</h3>
+<div class="space-y-3">
+<button onclick="showInvoiceModal()" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='var(--shadow-lg)'" style="width: 100%; padding: var(--space-lg); background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(52, 211, 153, 0.05)); border: 1px solid rgba(16, 185, 129, 0.2); border-radius: var(--radius-xl); text-align: left; cursor: pointer; transition: all var(--transition-fast);">
+<div style="display: flex; align-items: center; gap: var(--space-md);">
+<div style="width: 40px; height: 40px; background: var(--bg-sidebar-active); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center;">
+<i data-lucide="file-text" style="width: 20px; height: 20px; color: white;"></i>
+</div>
+<div>
+<div style="font-weight: 700; color: var(--text-primary); margin-bottom: 2px;">Nueva Factura</div>
+<div style="font-size: var(--font-size-sm); color: var(--text-secondary);">Crear factura de venta</div>
+</div>
+</div>
+</button>
+<button onclick="showOrderModal()" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='var(--shadow-lg)'" style="width: 100%; padding: var(--space-lg); background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(99, 102, 241, 0.05)); border: 1px solid rgba(59, 130, 246, 0.2); border-radius: var(--radius-xl); text-align: left; cursor: pointer; transition: all var(--transition-fast);">
+<div style="display: flex; align-items: center; gap: var(--space-md);">
+<div style="width: 40px; height: 40px; background: linear-gradient(135deg, var(--mep-info), #1D4ED8); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center;">
+<i data-lucide="shopping-cart" style="width: 20px; height: 20px; color: white;"></i>
+</div>
+<div>
+<div style="font-weight: 700; color: var(--text-primary); margin-bottom: 2px;">Nuevo Pedido</div>
+<div style="font-size: var(--font-size-sm); color: var(--text-secondary);">Procesar orden de compra</div>
+</div>
+</div>
+</button>
+<button onclick="generateReport()" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='var(--shadow-lg)'" style="width: 100%; padding: var(--space-lg); background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(168, 85, 247, 0.05)); border: 1px solid rgba(139, 92, 246, 0.2); border-radius: var(--radius-xl); text-align: left; cursor: pointer; transition: all var(--transition-fast);">
+<div style="display: flex; align-items: center; gap: var(--space-md);">
+<div style="width: 40px; height: 40px; background: linear-gradient(135deg, #8B5CF6, #7C3AED); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center;">
+<i data-lucide="bar-chart-3" style="width: 20px; height: 20px; color: white;"></i>
+</div>
+<div>
+<div style="font-weight: 700; color: var(--text-primary); margin-bottom: 2px;">Generar Reporte</div>
+<div style="font-size: var(--font-size-sm); color: var(--text-secondary);">Analytics personalizado</div>
+</div>
+</div>
+</button>
+</div>
+</div>
+</div>
+
+<!-- Operational Analytics -->
+<div class="card">
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-xl);">
+<h3 style="font-size: var(--font-size-xl); font-weight: 800; color: var(--text-primary);">Analytics Operacionales</h3>
+<div style="display: flex; gap: var(--space-md);">
+<button class="btn btn-ghost" onclick="switchAnalyticsView('sales')">Ventas</button>
+<button class="btn btn-ghost" onclick="switchAnalyticsView('inventory')">Inventario</button>
+<button class="btn btn-ghost" onclick="switchAnalyticsView('operations')">Operaciones</button>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-xl);">
+<!-- Sales by Channel -->
+<div style="background: var(--bg-tertiary); padding: var(--space-xl); border-radius: var(--radius-xl);">
+<h4 style="font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-lg); text-align: center;">Ventas por Canal</h4>
+<div style="position: relative; margin: var(--space-xl) auto;">
+<!-- Donut Chart Simulation -->
+<svg height="120" style="transform: rotate(-90deg);" width="120">
+<circle cx="60" cy="60" fill="none" r="50" stroke="var(--border-primary)" stroke-width="20"></circle>
+<circle cx="60" cy="60" fill="none" r="50" stroke="var(--mep-primary-500)" stroke-dasharray="157" stroke-dashoffset="39" stroke-width="20" style="transition: stroke-dashoffset 2s ease-out;"></circle>
+<circle cx="60" cy="60" fill="none" r="50" stroke="var(--mep-info)" stroke-dasharray="157" stroke-dashoffset="78" stroke-width="20" style="transition: stroke-dashoffset 2s ease-out;"></circle>
+<circle cx="60" cy="60" fill="none" r="50" stroke="var(--mep-warning)" stroke-dasharray="157" stroke-dashoffset="125" stroke-width="20" style="transition: stroke-dashoffset 2s ease-out;"></circle>
+</svg>
+<div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
+<div style="font-size: var(--font-size-lg); font-weight: 900; color: var(--text-primary);">€1.2M</div>
+<div style="font-size: var(--font-size-xs); color: var(--text-secondary);">Total</div>
+</div>
+</div>
+<div class="space-y-2">
+<div style="display: flex; justify-content: space-between; align-items: center;">
+<div style="display: flex; align-items: center; gap: var(--space-xs);">
+<div style="width: 8px; height: 8px; background: var(--mep-primary-500); border-radius: var(--radius-full);"></div>
+<span style="font-size: var(--font-size-xs); color: var(--text-primary);">Online</span>
+</div>
+<span style="font-size: var(--font-size-xs); font-weight: 600; color: var(--text-primary);">60%</span>
+</div>
+<div style="display: flex; justify-content: space-between; align-items: center;">
+<div style="display: flex; align-items: center; gap: var(--space-xs);">
+<div style="width: 8px; height: 8px; background: var(--mep-info); border-radius: var(--radius-full);"></div>
+<span style="font-size: var(--font-size-xs); color: var(--text-primary);">Tienda</span>
+</div>
+<span style="font-size: var(--font-size-xs); font-weight: 600; color: var(--text-primary);">25%</span>
+</div>
+<div style="display: flex; justify-content: space-between; align-items: center;">
+<div style="display: flex; align-items: center; gap: var(--space-xs);">
+<div style="width: 8px; height: 8px; background: var(--mep-warning); border-radius: var(--radius-full);"></div>
+<span style="font-size: var(--font-size-xs); color: var(--text-primary);">Distribuidores</span>
+</div>
+<span style="font-size: var(--font-size-xs); font-weight: 600; color: var(--text-primary);">15%</span>
+</div>
+</div>
+</div>
+<!-- Top Products -->
+<div style="background: var(--bg-tertiary); padding: var(--space-xl); border-radius: var(--radius-xl);">
+<h4 style="font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-lg); text-align: center;">Productos Top</h4>
+<div class="space-y-3">
+<div style="display: flex; justify-content: space-between; align-items: center;">
+<div>
+<div style="font-weight: 600; color: var(--text-primary); font-size: var(--font-size-sm);">Mouse Logitech MX3</div>
+<div style="font-size: var(--font-size-xs); color: var(--text-secondary);">28 vendidos</div>
+</div>
+<div style="width: 40px;">
+<div class="progress-bar" style="height: 4px;">
+<div class="progress-fill" style="width: 55%;"></div>
+</div>
+</div>
+</div>
+<div style="display: flex; justify-content: space-between; align-items: center;">
+<div>
+<div style="font-weight: 600; color: var(--text-primary); font-size: var(--font-size-sm);">Teclado Mecánico</div>
+<div style="font-size: var(--font-size-xs); color: var(--text-secondary);">19 vendidos</div>
+</div>
+<div style="width: 40px;">
+<div class="progress-bar" style="height: 4px;">
+<div class="progress-fill" style="width: 38%;"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Customer Satisfaction -->
+<div style="background: var(--bg-tertiary); padding: var(--space-xl); border-radius: var(--radius-xl);">
+<h4 style="font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-lg); text-align: center;">Satisfacción Cliente</h4>
+<div style="text-align: center; margin-bottom: var(--space-lg);">
+<div style="font-size: var(--font-size-4xl); font-weight: 900; color: var(--mep-success); margin-bottom: var(--space-sm);">4.8</div>
+<div style="display: flex; justify-content: center; gap: 2px; margin-bottom: var(--space-sm);">
+<i data-lucide="star" style="width: 16px; height: 16px; color: var(--mep-warning); fill: currentColor;"></i>
+<i data-lucide="star" style="width: 16px; height: 16px; color: var(--mep-warning); fill: currentColor;"></i>
+<i data-lucide="star" style="width: 16px; height: 16px; color: var(--mep-warning); fill: currentColor;"></i>
+<i data-lucide="star" style="width: 16px; height: 16px; color: var(--mep-warning); fill: currentColor;"></i>
+<i data-lucide="star" style="width: 16px; height: 16px; color: var(--mep-warning); fill: currentColor;"></i>
+</div>
+<div style="font-size: var(--font-size-xs); color: var(--text-secondary);">Basado en 1,247 reseñas</div>
+</div>
+<div class="space-y-2">
+<div style="display: flex; align-items: center; gap: var(--space-sm);">
+<span style="font-size: var(--font-size-xs); color: var(--text-secondary); width: 20px;">5★</span>
+<div style="flex: 1;">
+<div class="progress-bar" style="height: 6px;">
+<div class="progress-fill" style="width: 78%;"></div>
+</div>
+</div>
+<span style="font-size: var(--font-size-xs); color: var(--text-primary); font-weight: 600;">78%</span>
+</div>
+<div style="display: flex; align-items: center; gap: var(--space-sm);">
+<span style="font-size: var(--font-size-xs); color: var(--text-secondary); width: 20px;">4★</span>
+<div style="flex: 1;">
+<div class="progress-bar" style="height: 6px;">
+<div class="progress-fill" style="width: 15%;"></div>
+</div>
+</div>
+<span style="font-size: var(--font-size-xs); color: var(--text-primary); font-weight: 600;">15%</span>
+</div>
+<div style="display: flex; align-items: center; gap: var(--space-sm);">
+<span style="font-size: var(--font-size-xs); color: var(--text-secondary); width: 20px;">3★</span>
+<div style="flex: 1;">
+<div class="progress-bar" style="height: 6px;">
+<div class="progress-fill" style="width: 5%;"></div>
+</div>
+</div>
+<span style="font-size: var(--font-size-xs); color: var(--text-primary); font-weight: 600;">5%</span>
+</div>
+</div>
+</div>
+<!-- Production Metrics -->
+<div style="background: var(--bg-tertiary); padding: var(--space-xl); border-radius: var(--radius-xl);">
+<h4 style="font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-lg); text-align: center;">Métricas Producción</h4>
+<div class="space-y-4">
+<div>
+<div style="display: flex; justify-content: space-between; margin-bottom: var(--space-sm);">
+<span style="font-size: var(--font-size-sm); color: var(--text-secondary);">Eficiencia</span>
+<span style="font-size: var(--font-size-sm); font-weight: 700; color: var(--mep-success);">94.2%</span>
+</div>
+<div class="progress-bar">
+<div class="progress-fill" style="width: 94.2%;"></div>
+</div>
+</div>
+<div>
+<div style="display: flex; justify-content: space-between; margin-bottom: var(--space-sm);">
+<span style="font-size: var(--font-size-sm); color: var(--text-secondary);">Calidad</span>
+<span style="font-size: var(--font-size-sm); font-weight: 700; color: var(--mep-success);">98.7%</span>
+</div>
+<div class="progress-bar">
+<div class="progress-fill" style="width: 98.7%;"></div>
+</div>
+</div>
+<div>
+<div style="display: flex; justify-content: space-between; margin-bottom: var(--space-sm);">
+<span style="font-size: var(--font-size-sm); color: var(--text-secondary);">Entregas a Tiempo</span>
+<span style="font-size: var(--font-size-sm); font-weight: 700; color: var(--mep-warning);">89.3%</span>
+</div>
+<div class="progress-bar">
+<div class="progress-fill" style="width: 89.3%; background: linear-gradient(135deg, var(--mep-warning), #EA580C);"></div>
+</div>
+</div>
+<div style="padding-top: var(--space-md); border-top: 1px solid var(--border-primary);">
+<div style="text-align: center;">
+<div style="font-size: var(--font-size-sm); color: var(--text-secondary); margin-bottom: 2px;">OEE Global</div>
+<div style="font-size: var(--font-size-xl); font-weight: 900; color: var(--mep-primary-600);">82.1%</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<style>
+@keyframes growUp {
+    from {
+        height: 0;
+    }
+    to {
+        height: var(--final-height);
+    }
+}
+
+.stat-card {
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.stat-card:hover {
+    transform: translateY(-6px) scale(1.02);
+    transition: all 0.3s ease-out;
+}
+</style>
+<script>
+// ERP Analytics Functions
+function drillDown(metric) {
+    console.log('Drilling down into:', metric);
+    showNotification('Analytics', `Analizando métricas de ${metric}...`, 'info');
+    // Implementar drill-down específico por métrica
+}
+
+function refreshChart(chartType) {
+    console.log('Refreshing chart:', chartType);
+    showNotification('Actualización', 'Actualizando datos en tiempo real...', 'info');
+    // Implementar actualización de gráficos
+}
+
+function switchAnalyticsView(view) {
+    console.log('Switching to analytics view:', view);
+    // Implementar cambio de vista de analytics
+}
+
+function showInvoiceModal() {
+    console.log('Opening invoice modal...');
+    showNotification('Facturación', 'Abriendo formulario de nueva factura...', 'info');
+}
+
+function showOrderModal() {
+    console.log('Opening order modal...');
+    showNotification('Pedidos', 'Abriendo formulario de nuevo pedido...', 'info');
+}
+
+function generateReport() {
+    console.log('Generating custom report...');
+    showNotification('Reportes', 'Generando reporte personalizado...', 'info');
+}
+
+function exportData() {
+    console.log('Exporting ERP data...');
+    showNotification('Exportación', 'Preparando datos para exportación...', 'info');
+}
+
+function showFilters() {
+    console.log('Showing filters...');
+    // Implementar modal de filtros avanzados
+}
+
+function showCreateRecordModal() {
+    console.log('Opening create record modal...');
+    showNotification('Nuevo Registro', 'Abriendo formulario...', 'info');
+}
+
+// Real-time data updates simulation
+function updateRealTimeKPIs() {
+    // Simular actualización de KPIs en tiempo real
+    const salesElement = document.querySelector('[data-kpi="sales-today"]');
+    if (salesElement) {
+        // Actualizar valores dinámicamente
+        console.log('Updating real-time KPIs...');
+    }
+}
+
+// Initialize ERP module
+document.addEventListener('DOMContentLoaded', function() {
+    // Update real-time KPIs every 30 seconds
+    setInterval(updateRealTimeKPIs, 30000);
+    
+    // Initialize charts animation
+    setTimeout(() => {
+        console.log('Initializing ERP charts...');
+    }, 1000);
+});
+</script>="font-weight: 600; color: var(--text-primary); font-size: var(--font-size-sm);"&gt;Laptop Dell 5520
+<div style="font-size: var(--font-size-xs); color: var(--text-secondary);">45 vendidas</div>
+
+<div style="width: 40px;">
+<div class="progress-bar" style="height: 4px;">
+<div class="progress-fill" style="width: 90%;"></div>
+</div>
+</div>
+
+<div style="display: flex; justify-content: space-between; align-items: center;">
+<div>
+<div style="font-weight: 600; color: var(--text-primary); font-size: var(--font-size-sm);">Monitor Samsung 27"</div>
+<div style="font-size: var(--font-size-xs); color: var(--text-secondary);">32 vendidos</div>
+</div>
+<div style="width: 40px;">
+<div class="progress-bar" style="height: 4px;">
+<div class="progress-fill" style="width: 65%;"></div>
+</div>
+</div>
+</div>
+<div style="display: flex; justify-content: space-between; align-items: center;">
+<div>
+<div -="" --="" contenido="" del="" div="" el="" erp="" expanded="" id="erp-module" module="" reemplazar="" style<!--="">
+<div class="module-content hidden" id="erp-module">
+<div class="space-y-6">
+<div class="flex items-center justify-between">
+<div>
+<h2 style="font-size: var(--font-size-3xl); font-weight: 800; color: var(--text-primary); margin-bottom: var(--space-xs);">ERP - Planificación de Recursos</h2>
+<p style="color: var(--text-secondary); font-size: var(--font-size-lg); font-weight: 500;">Sistema integral de gestión empresarial con analytics avanzados</p>
+</div>
+<div style="display: flex; gap: var(--space-md);">
+<button class="btn btn-secondary" onclick="exportData()">
+<i data-lucide="download" style="width: 18px; height: 18px;"></i>
+                    Exportar
+                </button>
+<button class="btn btn-secondary" onclick="showFilters()">
+<i data-lucide="filter" style="width: 18px; height: 18px;"></i>
+                    Filtros
+                </button>
+<button class="btn btn-primary" onclick="showCreateRecordModal()">
+<i data-lucide="plus" style="width: 18px; height: 18px;"></i>
+                    Nuevo Registro
+                </button>
+</div>
+</div>
+<!-- Executive Dashboard Stats -->
+<div class="grid grid-cols-4">
+<div class="stat-card" onclick="drillDown('revenue')" style="cursor: pointer;">
+<div class="stat-header">
+<div class="stat-content">
+<h3>Ingresos Totales</h3>
+<p>€2,485,230</p>
+<div class="stat-trend stat-trend-positive">
+<i data-lucide="trending-up" style="width: 16px; height: 16px;"></i>
+<span>+18.7% vs trimestre anterior</span>
+</div>
+</div>
+<div class="stat-icon" style="background: var(--bg-sidebar-active);">
+<i data-lucide="euro" style="width: 28px; height: 28px;"></i>
+</div>
+</div>
+<div style="margin-top: var(--space-md);">
+<div style="display: flex; justify-content: space-between; margin-bottom: 4px; font-size: var(--font-size-xs);">
+<span style="color: var(--text-secondary);">Meta Anual</span>
+<span style="color: var(--text-primary); font-weight: 600;">68.2%</span>
+</div>
+<div class="progress-bar" style="height: 6px;">
+<div class="progress-fill" style="width: 68.2%;"></div>
+</div>
+</div>
+</div>
+<div class="stat-card" onclick="drillDown('orders')" style="cursor: pointer;">
+<div class="stat-header">
+<div class="stat-content">
+<h3>Órdenes Activas</h3>
+<p>247</p>
+<div class="stat-trend stat-trend-neutral">
+<i data-lucide="package" style="width: 16px; height: 16px;"></i>
+<span>18 pendientes de aprobación</span>
+</div>
+</div>
+<div class="stat-icon" style="background: linear-gradient(135deg, var(--mep-warning), #EA580C);">
+<i data-lucide="shopping-cart" style="width: 28px; height: 28px;"></i>
+</div>
+</div>
+<div style="margin-top: var(--space-md);">
+<div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-sm); font-size: var(--font-size-xs);">
+<div style="text-align: center;">
+<div style="color: var(--mep-success); font-weight: 700;">189</div>
+<div style="color: var(--text-tertiary);">Procesadas</div>
+</div>
+<div style="text-align: center;">
+<div style="color: var(--mep-warning); font-weight: 700;">40</div>
+<div style="color: var(--text-tertiary);">En proceso</div>
+</div>
+<div style="text-align: center;">
+<div style="color: var(--mep-error); font-weight: 700;">18</div>
+<div style="color: var(--text-tertiary);">Pendientes</div>
+</div>
+</div>
+</div>
+</div>
+<div class="stat-card" onclick="drillDown('inventory')" style="cursor: pointer;">
+<div class="stat-header">
+<div class="stat-content">
+<h3>Valor Inventario</h3>
+<p>€524,890</p>
+<div class="stat-trend stat-trend-positive">
+<i data-lucide="trending-up" style="width: 16px; height: 16px;"></i>
+<span>Inventario optimizado +8.2%</span>
+</div>
+</div>
+<div class="stat-icon" style="background: linear-gradient(135deg, var(--mep-info), #1D4ED8);">
+<i data-lucide="warehouse" style="width: 28px; height: 28px;"></i>
+</div>
+</div>
+<div style="margin-top: var(--space-md);">
+<div style="display: flex; align-items: center; gap: var(--space-sm);">
+<div style="flex: 1;">
+<div style="font-size: var(--font-size-xs); color: var(--text-secondary); margin-bottom: 2px;">Rotación</div>
+<div class="progress-bar" style="height: 4px;">
+<div class="progress-fill" style="width: 85%; background: linear-gradient(135deg, var(--mep-success), #047857);"></div>
+</div>
+</div>
+<div style="font-size: var(--font-size-sm); font-weight: 700; color: var(--mep-success);">85%</div>
+</div>
+</div>
+</div>
+<div class="stat-card" onclick="drillDown('efficiency')" style="cursor: pointer;">
+<div class="stat-header">
+<div class="stat-content">
+<h3>Eficiencia Operativa</h3>
+<p>94.2%</p>
+<div class="stat-trend stat-trend-positive">
+<i data-lucide="activity" style="width: 16px; height: 16px;"></i>
+<span>+2.1% este mes</span>
+</div>
+</div>
+<div class="stat-icon" style="background: linear-gradient(135deg, #8B5CF6, #7C3AED);">
+<i data-lucide="zap" style="width: 28px; height: 28px;"></i>
+</div>
+</div>
+<div style="margin-top: var(--space-md);">
+<div style="display: flex; justify-content: space-between; font-size: var(--font-size-xs);">
+<div style="text-align: center;">
+<div style="color: var(--mep-success); font-weight: 700;">98.1%</div>
+<div style="color: var(--text-tertiary);">Tiempo activo</div>
+</div>
+<div style="text-align: center;">
+<div style="color: var(--mep-info); font-weight: 700;">92.4%</div>
+<div style="color: var(--text-tertiary);">Calidad</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Business Intelligence Dashboard -->
+<div class="grid" style="grid-template-columns: 2fr 1fr; gap: var(--space-2xl);">
+<!-- Financial Analytics -->
+<div class="card">
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-xl);">
+<h3 style="font-size: var(--font-size-xl); font-weight: 800; color: var(--text-primary);">Análisis Financiero</h3>
+<div style="display: flex; gap: var(--space-sm);">
+<select style="padding: var(--space-sm) var(--space-md); border: 2px solid var(--border-primary); border-radius: var(--radius-lg); background: var(--bg-surface); color: var(--text-primary); font-size: var(--font-size-sm);">
+<option value="month">Este mes</option>
+<option selected="" value="quarter">Trimestre</option>
+<option value="year">Año</option>
+</select>
+<button class="btn btn-ghost" onclick="refreshChart('financial')">
+<i data-lucide="refresh-cw" style="width: 16px; height: 16px;"></i>
+</button>
+</div>
+</div>
+<!-- Revenue Chart -->
+<div style="margin-bottom: var(--space-2xl);">
+<h4 style="font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-lg);">Ingresos vs Gastos (€)</h4>
+<div style="height: 300px; background: var(--bg-tertiary); border-radius: var(--radius-xl); position: relative; overflow: hidden;">
+<!-- Simulated Chart -->
+<div style="position: absolute; bottom: 0; left: 0; right: 0; height: 100%; display: flex; align-items: end; padding: var(--space-lg); gap: 8px;">
+<!-- Revenue Bars -->
+<div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: var(--space-xs);">
+<div style="width: 100%; height: 180px; background: linear-gradient(180deg, var(--mep-success), #047857); border-radius: var(--radius-sm); position: relative; animation: growUp 2s ease-out;">
+<div style="position: absolute; top: -24px; left: 50%; transform: translateX(-50%); font-size: var(--font-size-xs); font-weight: 600; color: var(--text-primary);">€485K</div>
+</div>
+<div style="font-size: var(--font-size-xs); color: var(--text-secondary); font-weight: 600;">Ene</div>
+</div>
+<div style="
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-xs);
+">
+<div style="
+      width: 100%;
+      height: 220px;
+      background: linear-gradient(180deg, var(--mep-success), #047857);
+      border-radius: var(--radius-sm);
+      position: relative;
+      animation: growUp 2.2s ease-out;
+  ">
+<div style="
+        position: absolute;
+        top: -24px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: var(--font-size-xs);
+        font-weight: 600;
+        color: var(--text-primary);
+    ">
+      €592K
+    </div>
+</div>
+<div style="
+      font-size: var(--font-size-xs);
+      color: var(--text-secondary);
+      font-weight: 600;
+  ">
+    Feb
+  </div>
+</div>
+<!-- Barra de Mar -->
+<div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: var(--space-xs);">
+<div style="width: 100%; height: 160px; background: linear-gradient(180deg, var(--mep-success), #047857); border-radius: var(--radius-sm); position: relative; animation: growUp 2.4s ease-out;">
+<div style="position: absolute; top: -24px; left: 50%; transform: translateX(-50%); font-size: var(--font-size-xs); font-weight: 600; color: var(--text-primary);">€445K</div>
+</div>
+<div style="font-size: var(--font-size-xs); color: var(--text-secondary); font-weight: 600;">Mar</div>
+</div>
+</div>
+<!-- Leyenda del gráfico -->
+<div style="position: absolute; top: var(--space-lg); right: var(--space-lg); display: flex; gap: var(--space-lg);">
+<div style="display: flex; align-items: center; gap: var(--space-xs);">
+<div style="width: 12px; height: 12px; background: var(--mep-success); border-radius: var(--radius-sm);"></div>
+<span style="font-size: var(--font-size-xs); color: var(--text-primary); font-weight: 600;">Ingresos</span>
+</div>
+<div style="display: flex; align-items: center; gap: var(--space-xs);">
+<div style="width: 12px; height: 12px; background: var(--mep-error); border-radius: var(--radius-sm);"></div>
+<span style="font-size: var(--font-size-xs); color: var(--text-primary); font-weight: 600;">Gastos</span>
+</div>
+</div>
+</div>
+</div>
+</div></div></div></div></div></div></div>

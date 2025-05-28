@@ -1,0 +1,583 @@
+<html lang="es"><head>
+
+
+
+
+
+
+
+</head></html> <div style="background: var(--mep-primary-500); color: white; font-size: var(--font-size-xs); padding: 2px 6px; border-radius: var(--radius-full); min-width: 20px; text-align: center;">5</div>
+
+<div class="chat-item" onclick="selectChat('pedro-sanchez')" onmouseout="this.style.background='transparent'" onmouseover="this.style.background='var(--bg-tertiary)'" style="display: flex; align-items: center; gap: var(--space-md); padding: var(--space-md); border-radius: var(--radius-lg); cursor: pointer; transition: background-color var(--transition-fast);">
+<div style="position: relative;">
+<div style="width: 48px; height: 48px; background: linear-gradient(135deg, var(--mep-success), #047857); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: var(--font-size-lg);">P</div>
+<div style="position: absolute; bottom: -2px; right: -2px; width: 16px; height: 16px; background: var(--mep-gray-400); border: 3px solid var(--bg-surface); border-radius: var(--radius-full);"></div>
+</div>
+<div style="flex: 1; min-width: 0;">
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
+<h4 style="font-weight: 700; color: var(--text-primary); font-size: var(--font-size-base); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Pedro Sánchez</h4>
+<span style="font-size: var(--font-size-xs); color: var(--text-tertiary);">1 sem</span>
+</div>
+<p style="font-size: var(--font-size-sm); color: var(--text-secondary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">La documentación está lista</p>
+</div>
+</div>
+
+
+
+<!-- Chat Main Content -->
+<div style="flex: 1; background: var(--bg-surface); border: 1px solid var(--border-primary); border-radius: var(--radius-2xl); display: flex; flex-direction: column;">
+<!-- Chat Header -->
+<div style="padding: var(--space-xl); border-bottom: 1px solid var(--border-primary); background: var(--bg-tertiary); border-radius: var(--radius-2xl) var(--radius-2xl) 0 0;">
+<div style="display: flex; justify-content: space-between; align-items: center;">
+<div style="display: flex; align-items: center; gap: var(--space-md);">
+<div style="width: 48px; height: 48px; background: linear-gradient(135deg, var(--mep-primary-500), var(--mep-primary-600)); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;">
+<i data-lucide="users" style="width: 24px; height: 24px;"></i>
+</div>
+<div>
+<h3 style="font-size: var(--font-size-xl); font-weight: 800; color: var(--text-primary); margin-bottom: 2px;">Equipo General</h3>
+<p style="font-size: var(--font-size-sm); color: var(--text-secondary);">5 miembros • 3 en línea</p>
+</div>
+</div>
+<div style="display: flex; gap: var(--space-sm);">
+<button class="btn btn-ghost" onclick="startVideoCall()" style="padding: var(--space-sm);">
+<i data-lucide="video" style="width: 20px; height: 20px;"></i>
+</button>
+<button class="btn btn-ghost" onclick="startVoiceCall()" style="padding: var(--space-sm);">
+<i data-lucide="phone" style="width: 20px; height: 20px;"></i>
+</button>
+<button class="btn btn-ghost" onclick="showChatInfo()" style="padding: var(--space-sm);">
+<i data-lucide="info" style="width: 20px; height: 20px;"></i>
+</button>
+</div>
+</div>
+</div>
+<!-- Messages Area -->
+<div id="messages-container" style="flex: 1; padding: var(--space-lg); overflow-y: auto; max-height: calc(100vh - 400px);">
+<div class="space-y-4">
+<!-- Date Separator -->
+<div style="text-align: center; margin: var(--space-xl) 0;">
+<span style="background: var(--bg-tertiary); color: var(--text-tertiary); padding: var(--space-sm) var(--space-lg); border-radius: var(--radius-full); font-size: var(--font-size-sm); font-weight: 600;">Hoy, 27 de Mayo</span>
+</div>
+<!-- Message from Ana -->
+<div class="message" style="display: flex; gap: var(--space-md); margin-bottom: var(--space-lg);">
+<div style="width: 40px; height: 40px; background: linear-gradient(135deg, var(--mep-info), #1D4ED8); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; flex-shrink: 0;">A</div>
+<div style="flex: 1;">
+<div style="display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-xs);">
+<span style="font-weight: 700; color: var(--text-primary);">Ana López</span>
+<span style="font-size: var(--font-size-xs); color: var(--text-tertiary);">10:30 AM</span>
+</div>
+<div style="background: var(--bg-tertiary); padding: var(--space-md); border-radius: 0 var(--radius-lg) var(--radius-lg) var(--radius-lg); color: var(--text-primary);">
+                                ¡Buenos días equipo! ¿Podemos revisar el proyecto MEP-2025? Necesito actualizar algunas especificaciones técnicas.
+                            </div>
+</div>
+</div>
+<!-- Message from You -->
+<div class="message" style="display: flex; gap: var(--space-md); margin-bottom: var(--space-lg); flex-direction: row-reverse;">
+<div style="width: 40px; height: 40px; background: var(--bg-sidebar-active); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; flex-shrink: 0;">E</div>
+<div style="flex: 1;">
+<div style="display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-xs); flex-direction: row-reverse;">
+<span style="font-weight: 700; color: var(--text-primary);">Tú</span>
+<span style="font-size: var(--font-size-xs); color: var(--text-tertiary);">10:32 AM</span>
+</div>
+<div style="background: var(--bg-sidebar-active); padding: var(--space-md); border-radius: var(--radius-lg) 0 var(--radius-lg) var(--radius-lg); color: white;">
+                                Por supuesto Ana. ¿Tienes disponible la documentación actual? Podemos hacer una revisión esta tarde.
+                            </div>
+</div>
+</div>
+<!-- Message from Carlos -->
+<div class="message" style="display: flex; gap: var(--space-md); margin-bottom: var(--space-lg);">
+<div style="width: 40px; height: 40px; background: linear-gradient(135deg, #8B5CF6, #7C3AED); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; flex-shrink: 0;">C</div>
+<div style="flex: 1;">
+<div style="display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-xs);">
+<span style="font-weight: 700; color: var(--text-primary);">Carlos Gómez</span>
+<span style="font-size: var(--font-size-xs); color: var(--text-tertiary);">10:35 AM</span>
+</div>
+<div style="background: var(--bg-tertiary); padding: var(--space-md); border-radius: 0 var(--radius-lg) var(--radius-lg) var(--radius-lg); color: var(--text-primary);">
+                                Perfecto. También he terminado con la configuración del servidor. ¿Necesitáis que prepare algo específico para la reunión?
+                            </div>
+</div>
+</div>
+<!-- File Message -->
+<div class="message" style="display: flex; gap: var(--space-md); margin-bottom: var(--space-lg);">
+<div style="width: 40px; height: 40px; background: linear-gradient(135deg, var(--mep-info), #1D4ED8); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; flex-shrink: 0;">A</div>
+<div style="flex: 1;">
+<div style="display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-xs);">
+<span style="font-weight: 700; color: var(--text-primary);">Ana López</span>
+<span style="font-size: var(--font-size-xs); color: var(--text-tertiary);">10:37 AM</span>
+</div>
+<div style="background: var(--bg-tertiary); padding: var(--space-md); border-radius: 0 var(--radius-lg) var(--radius-lg) var(--radius-lg); color: var(--text-primary); margin-bottom: var(--space-sm);">
+                                Aquí tenéis la documentación actualizada:
+                            </div>
+<div onmouseout="this.style.background='var(--bg-surface)'" onmouseover="this.style.background='var(--bg-secondary)'" style="background: var(--bg-surface); border: 1px solid var(--border-primary); padding: var(--space-md); border-radius: var(--radius-lg); display: flex; align-items: center; gap: var(--space-md); cursor: pointer; transition: background-color var(--transition-fast); max-width: 400px;">
+<div style="width: 48px; height: 48px; background: var(--mep-error); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; color: white;">
+<i data-lucide="file-text" style="width: 24px; height: 24px;"></i>
+</div>
+<div style="flex: 1; min-width: 0;">
+<h4 style="font-weight: 600; color: var(--text-primary); margin-bottom: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">MEP-2025-Especificaciones.pdf</h4>
+<p style="font-size: var(--font-size-sm); color: var(--text-secondary);">2.4 MB • PDF</p>
+</div>
+<button style="background: none; border: none; color: var(--text-tertiary); cursor: pointer; padding: var(--space-sm);">
+<i data-lucide="download" style="width: 20px; height: 20px;"></i>
+</button>
+</div>
+</div>
+</div>
+<!-- Typing Indicator -->
+<div class="message typing-indicator" style="display: flex; gap: var(--space-md); margin-bottom: var(--space-lg);">
+<div style="width: 40px; height: 40px; background: linear-gradient(135deg, var(--mep-warning), #EA580C); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; flex-shrink: 0;">M</div>
+<div style="flex: 1;">
+<div style="display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-xs);">
+<span style="font-weight: 700; color: var(--text-primary);">María Rodríguez</span>
+<span style="font-size: var(--font-size-xs); color: var(--text-tertiary);">escribiendo...</span>
+</div>
+<div style="background: var(--bg-tertiary); padding: var(--space-md); border-radius: 0 var(--radius-lg) var(--radius-lg) var(--radius-lg); color: var(--text-primary); display: flex; align-items: center; gap: 4px;">
+<div class="typing-dot" style="width: 8px; height: 8px; background: var(--text-tertiary); border-radius: var(--radius-full); animation: typing 1.4s infinite ease-in-out;"></div>
+<div class="typing-dot" style="width: 8px; height: 8px; background: var(--text-tertiary); border-radius: var(--radius-full); animation: typing 1.4s infinite ease-in-out 0.2s;"></div>
+<div class="typing-dot" style="width: 8px; height: 8px; background: var(--text-tertiary); border-radius: var(--radius-full); animation: typing 1.4s infinite ease-in-out 0.4s;"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Message Input -->
+<div style="padding: var(--space-lg); border-top: 1px solid var(--border-primary);">
+<div style="display: flex; align-items: flex-end; gap: var(--space-md);">
+<button class="btn btn-ghost" onclick="attachFile()" style="padding: var(--space-sm);">
+<i data-lucide="paperclip" style="width: 20px; height: 20px;"></i>
+</button>
+<button class="btn btn-ghost" onclick="insertEmoji()" style="padding: var(--space-sm);">
+<i data-lucide="smile" style="width: 20px; height: 20px;"></i>
+</button>
+<div style="flex: 1; position: relative;">
+<textarea id="message-input" oninput="adjustTextareaHeight(this)" onkeydown="handleMessageInput(event)" placeholder="Escribe un mensaje..." style="width: 100%; min-height: 44px; max-height: 120px; padding: var(--space-md); border: 2px solid var(--border-primary); border-radius: var(--radius-lg); background: var(--bg-surface); color: var(--text-primary); font-size: var(--font-size-base); resize: none; font-family: inherit;"></textarea>
+</div>
+<button class="btn btn-primary" id="send-button" onclick="sendMessage()">
+<i data-lucide="send" style="width: 18px; height: 18px;"></i>
+</button>
+</div>
+<!-- Quick Actions -->
+<div style="display: flex; gap: var(--space-sm); margin-top: var(--space-md);">
+<button onclick="insertQuickMessage('👍')" onmouseout="this.style.background='var(--bg-tertiary)'" onmouseover="this.style.background='var(--border-primary)'" style="background: var(--bg-tertiary); border: none; padding: var(--space-sm) var(--space-md); border-radius: var(--radius-full); cursor: pointer; transition: background-color var(--transition-fast);">👍</button>
+<button onclick="insertQuickMessage('✅')" onmouseout="this.style.background='var(--bg-tertiary)'" onmouseover="this.style.background='var(--border-primary)'" style="background: var(--bg-tertiary); border: none; padding: var(--space-sm) var(--space-md); border-radius: var(--radius-full); cursor: pointer; transition: background-color var(--transition-fast);">✅</button>
+<button onclick="insertQuickMessage('🎉')" onmouseout="this.style.background='var(--bg-tertiary)'" onmouseover="this.style.background='var(--border-primary)'" style="background: var(--bg-tertiary); border: none; padding: var(--space-sm) var(--space-md); border-radius: var(--radius-full); cursor: pointer; transition: background-color var(--transition-fast);">🎉</button>
+<button onclick="insertQuickMessage('🚀')" onmouseout="this.style.background='var(--bg-tertiary)'" onmouseover="this.style.background='var(--border-primary)'" style="background: var(--bg-tertiary); border: none; padding: var(--space-sm) var(--space-md); border-radius: var(--radius-full); cursor: pointer; transition: background-color var(--transition-fast);">🚀</button>
+<button onclick="insertQuickMessage('/recordatorio')" onmouseout="this.style.background='var(--bg-tertiary)'" onmouseover="this.style.background='var(--border-primary)'" style="background: var(--bg-tertiary); border: none; padding: var(--space-sm) var(--space-md); border-radius: var(--radius-full); cursor: pointer; font-size: var(--font-size-sm); color: var(--text-secondary); transition: background-color var(--transition-fast);">/recordatorio</button>
+<button onclick="insertQuickMessage('/tarea')" onmouseout="this.style.background='var(--bg-tertiary)'" onmouseover="this.style.background='var(--border-primary)'" style="background: var(--bg-tertiary); border: none; padding: var(--space-sm) var(--space-md); border-radius: var(--radius-full); cursor: pointer; font-size: var(--font-size-sm); color: var(--text-secondary); transition: background-color var(--transition-fast);">/tarea</button>
+</div>
+</div>
+</div>
+
+
+<!-- New Chat Modal -->
+<div id="new-chat-modal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 1000; display: none; align-items: center; justify-content: center;">
+<div style="background: var(--bg-surface); border-radius: var(--radius-2xl); padding: var(--space-2xl); max-width: 500px; width: 90%; max-height: 80vh; overflow-y: auto;">
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-xl);">
+<h3 style="font-size: var(--font-size-2xl); font-weight: 800; color: var(--text-primary);">Nuevo Chat</h3>
+<button onclick="hideNewChatModal()" style="background: none; border: none; color: var(--text-tertiary); cursor: pointer; padding: var(--space-sm);">
+<i data-lucide="x" style="width: 24px; height: 24px;"></i>
+</button>
+</div>
+<div style="margin-bottom: var(--space-lg);">
+<input placeholder="Buscar personas..." style="width: 100%; padding: var(--space-md); border: 2px solid var(--border-primary); border-radius: var(--radius-lg); background: var(--bg-secondary); color: var(--text-primary); font-size: var(--font-size-base);" type="text"/>
+</div>
+<div class="space-y-3">
+<h4 style="font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-md);">Miembros del equipo</h4>
+<div onclick="startChatWith('ana-lopez')" onmouseout="this.style.background='transparent'" onmouseover="this.style.background='var(--bg-tertiary)'" style="display: flex; align-items: center; gap: var(--space-md); padding: var(--space-md); border-radius: var(--radius-lg); cursor: pointer; transition: background-color var(--transition-fast);">
+<div style="width: 40px; height: 40px; background: linear-gradient(135deg, var(--mep-info), #1D4ED8); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;">A</div>
+<div style="flex: 1;">
+<h5 style="font-weight: 600; color: var(--text-primary); margin-bottom: 2px;">Ana López</h5>
+<p style="font-size: var(--font-size-sm); color: var(--text-secondary);">Desarrolladora Frontend</p>
+</div>
+<div style="width: 12px; height: 12px; background: var(--mep-success); border-radius: var(--radius-full);"></div>
+</div>
+<div onclick="startChatWith('carlos-gomez')" onmouseout="this.style.background='transparent'" onmouseover="this.style.background='var(--bg-tertiary)'" style="display: flex; align-items: center; gap: var(--space-md); padding: var(--space-md); border-radius: var(--radius-lg); cursor: pointer; transition: background-color var(--transition-fast);">
+<div style="width: 40px; height: 40px; background: linear-gradient(135deg, #8B5CF6, #7C3AED); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;">C</div>
+<div style="flex: 1;">
+<h5 style="font-weight: 600; color: var(--text-primary); margin-bottom: 2px;">Carlos Gómez</h5>
+<p style="font-size: var(--font-size-sm); color: var(--text-secondary);">DevOps Engineer</p>
+</div>
+<div style="width: 12px; height: 12px; background: var(--mep-warning); border-radius: var(--radius-full);"></div>
+</div>
+<div onclick="startChatWith('pedro-sanchez')" onmouseout="this.style.background='transparent'" onmouseover="this.style.background='var(--bg-tertiary)'" style="display: flex; align-items: center; gap: var(--space-md); padding: var(--space-md); border-radius: var(--radius-lg); cursor: pointer; transition: background-color var(--transition-fast);">
+<div style="width: 40px; height: 40px; background: linear-gradient(135deg, var(--mep-success), #047857); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;">P</div>
+<div style="flex: 1;">
+<h5 style="font-weight: 600; color: var(--text-primary); margin-bottom: 2px;">Pedro Sánchez</h5>
+<p style="font-size: var(--font-size-sm); color: var(--text-secondary);">Backend Developer</p>
+</div>
+<div style="width: 12px; height: 12px; background: var(--mep-gray-400); border-radius: var(--radius-full);"></div>
+</div>
+<div onclick="startChatWith('maria-rodriguez')" onmouseout="this.style.background='transparent'" onmouseover="this.style.background='var(--bg-tertiary)'" style="display: flex; align-items: center; gap: var(--space-md); padding: var(--space-md); border-radius: var(--radius-lg); cursor: pointer; transition: background-color var(--transition-fast);">
+<div style="width: 40px; height: 40px; background: linear-gradient(135deg, var(--mep-warning), #EA580C); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;">M</div>
+<div style="flex: 1;">
+<h5 style="font-weight: 600; color: var(--text-primary); margin-bottom: 2px;">María Rodríguez</h5>
+<p style="font-size: var(--font-size-sm); color: var(--text-secondary);">Project Manager</p>
+</div>
+<div style="width: 12px; height: 12px; background: var(--mep-success); border-radius: var(--radius-full);"></div>
+</div>
+</div>
+<div style="margin-top: var(--space-xl);">
+<button class="btn btn-primary" onclick="createGroupChat()" style="width: 100%;">
+<i data-lucide="users" style="width: 18px; height: 18px;"></i>
+                Crear Grupo
+            </button>
+</div>
+</div>
+</div>
+<style>
+@keyframes typing {
+    0%, 60%, 100% {
+        transform: translateY(0);
+    }
+    30% {
+        transform: translateY(-10px);
+    }
+}
+
+.chat-item.active {
+    background: var(--bg-sidebar-active) !important;
+    border: 1px solid var(--mep-primary-300);
+}
+
+.chat-item.active h4 {
+    color: var(--text-on-primary) !important;
+}
+
+.chat-item.active p {
+    color: rgba(255,255,255,0.8) !important;
+}
+
+.chat-item.active span {
+    color: rgba(255,255,255,0.7) !important;
+}
+</style>
+<script>
+// Chat Management Functions
+let currentChat = 'team-general';
+let messageCount = 0;
+
+function switchChatTab(tab) {
+    // Reset all tabs
+    document.getElementById('chat-tab-all').style.background = 'transparent';
+    document.getElementById('chat-tab-all').style.color = 'var(--text-secondary)';
+    document.getElementById('chat-tab-direct').style.background = 'transparent';
+    document.getElementById('chat-tab-direct').style.color = 'var(--text-secondary)';
+    document.getElementById('chat-tab-groups').style.background = 'transparent';
+    document.getElementById('chat-tab-groups').style.color = 'var(--text-secondary)';
+
+    // Activate selected tab
+    const activeTab = document.getElementById('chat-tab-' + tab);
+    activeTab.style.background = 'var(--bg-sidebar-active)';
+    activeTab.style.color = 'var(--text-on-primary)';
+
+    console.log('Switched to tab:', tab);
+}
+
+function selectChat(chatId) {
+    // Remove active class from all chats
+    document.querySelectorAll('.chat-item').forEach(item => {
+        item.classList.remove('active');
+    });
+
+    // Add active class to selected chat
+    event.currentTarget.classList.add('active');
+    currentChat = chatId;
+
+    console.log('Selected chat:', chatId);
+}
+
+function sendMessage() {
+    const input = document.getElementById('message-input');
+    const message = input.value.trim();
+    
+    if (message === '') return;
+
+    // Add message to chat
+    addMessageToChat('Tú', 'E', message, true);
+    
+    // Clear input
+    input.value = '';
+    adjustTextareaHeight(input);
+    
+    // Simulate response after a delay
+    setTimeout(() => {
+        simulateResponse(message);
+    }, 1000 + Math.random() * 2000);
+}
+
+function addMessageToChat(sender, avatar, message, isYou = false) {
+    const container = document.getElementById('messages-container');
+    const messagesDiv = container.querySelector('.space-y-4');
+    
+    const messageDiv = document.createElement('div');
+    messageDiv.className = 'message';
+    messageDiv.style.cssText = `display: flex; gap: var(--space-md); margin-bottom: var(--space-lg); ${isYou ? 'flex-direction: row-reverse;' : ''}`;
+    
+    const time = new Date().toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' });
+    
+    messageDiv.innerHTML = `
+        <div style="width: 40px; height: 40px; background: ${isYou ? 'var(--bg-sidebar-active)' : 'linear-gradient(135deg, var(--mep-info), #1D4ED8)'}; border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; flex-shrink: 0;">${avatar}</div>
+        <div style="flex: 1;">
+            <div style="display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-xs); ${isYou ? 'flex-direction: row-reverse;' : ''}">
+                <span style="font-weight: 700; color: var(--text-primary);">${sender}</span>
+                <span style="font-size: var(--font-size-xs); color: var(--text-tertiary);">${time}</span>
+            </div>
+            <div style="background: ${isYou ? 'var(--bg-sidebar-active)' : 'var(--bg-tertiary)'}; padding: var(--space-md); border-radius: ${isYou ? 'var(--radius-lg) 0 var(--radius-lg) var(--radius-lg)' : '0 var(--radius-lg) var(--radius-lg) var(--radius-lg)'}; color: ${isYou ? 'white' : 'var(--text-primary)'};">
+                ${message}
+            </div>
+        </div>
+    `;
+    
+    messagesDiv.appendChild(messageDiv);
+    container.scrollTop = container.scrollHeight;
+}
+
+function simulateResponse(originalMessage) {
+    const responses = [
+        { sender: 'Ana López', avatar: 'A', message: 'Perfecto, gracias por la información!' },
+        { sender: 'Carlos Gómez', avatar: 'C', message: 'Entendido, me pondré con ello ahora mismo.' },
+        { sender: 'María Rodríguez', avatar: 'M', message: 'Excelente trabajo equipo! 👏' },
+        { sender: 'Pedro Sánchez', avatar: 'P', message: 'Confirmo que todo está listo por mi parte.' }
+    ];
+    
+    const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+    addMessageToChat(randomResponse.sender, randomResponse.avatar, randomResponse.message);
+}
+
+function handleMessageInput(event) {
+    if (event.key === 'Enter' && !event.shiftKey) {
+        event.preventDefault();
+        sendMessage();
+    }
+}
+
+function adjustTextareaHeight(textarea) {
+    textarea.style.height = '44px';
+    textarea.style.height = Math.min(textarea.scrollHeight, 120) + 'px';
+}
+
+function insertQuickMessage(text) {
+    const input = document.getElementById('message-input');
+    input.value = text;
+    input.focus();
+}
+
+function attachFile() {
+    console.log('Attach file clicked');
+    // Aquí implementarías la lógica para adjuntar archivos
+}
+
+function insertEmoji() {
+    console.log('Insert emoji clicked');
+    // Aquí implementarías un selector de emojis
+}
+
+function startVideoCall() {
+    console.log('Starting video call...');
+    showNotification('Videollamada', 'Iniciando videollamada con Equipo General', 'info');
+}
+
+function startVoiceCall() {
+    console.log('Starting voice call...');
+    showNotification('Llamada de voz', 'Iniciando llamada de voz con Equipo General', 'info');
+}
+
+function showChatInfo() {
+    console.log('Show chat info clicked');
+    // Aquí mostrarías información del chat/grupo
+}
+
+function showNewChatModal() {
+    document.getElementById('new-chat-modal').style.display = 'flex';
+}
+
+function hideNewChatModal() {
+    document.getElementById('new-chat-modal').style.display = 'none';
+}
+
+function startChatWith(userId) {
+    console.log('Starting chat with:', userId);
+    hideNewChatModal();
+    // Aquí implementarías la lógica para iniciar un chat directo
+}
+
+function createGroupChat() {
+    console.log('Creating group chat...');
+    hideNewChatModal();
+    // Aquí implementarías la lógica para crear un grupo
+}
+
+// Initialize chat
+document.addEventListener('DOMContentLoaded', function() {
+    // Set initial active tab
+    switchChatTab('all');
+    
+    // Auto-scroll to bottom of messages
+    const container = document.getElementById('messages-container');
+    container.scrollTop = container.scrollHeight;
+});
+</script><!-- CHAT MODULE - Reemplazar el contenido del div id="chat-module" -->
+<div class="module-content hidden" id="chat-module">
+<div style="display: flex; height: calc(100vh - 200px); gap: var(--space-lg);">
+<!-- Chat Sidebar -->
+<div style="width: 320px; background: var(--bg-surface); border: 1px solid var(--border-primary); border-radius: var(--radius-2xl); display: flex; flex-direction: column;">
+<!-- Chat Header -->
+<div style="padding: var(--space-xl); border-bottom: 1px solid var(--border-primary);">
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-lg);">
+<h3 style="font-size: var(--font-size-xl); font-weight: 800; color: var(--text-primary);">Chats</h3>
+<button class="btn btn-primary" onclick="showNewChatModal()" style="padding: var(--space-sm);">
+<i data-lucide="plus" style="width: 18px; height: 18px;"></i>
+</button>
+</div>
+<!-- Search Chat -->
+<div style="position: relative;">
+<input placeholder="Buscar conversaciones..." style="width: 100%; padding: var(--space-sm) var(--space-md) var(--space-sm) 36px; border: 2px solid var(--border-primary); border-radius: var(--radius-lg); background: var(--bg-secondary); color: var(--text-primary); font-size: var(--font-size-sm);" type="text"/>
+<i data-lucide="search" style="position: absolute; left: var(--space-md); top: 50%; transform: translateY(-50%); width: 16px; height: 16px; color: var(--text-tertiary);"></i>
+</div>
+</div>
+<!-- Chat Tabs -->
+<div style="display: flex; padding: var(--space-md); border-bottom: 1px solid var(--border-primary);">
+<button id="chat-tab-all" onclick="switchChatTab('all')" style="flex: 1; padding: var(--space-sm); border: none; background: var(--bg-sidebar-active); color: var(--text-on-primary); border-radius: var(--radius-lg); font-weight: 600; font-size: var(--font-size-sm); cursor: pointer; margin-right: var(--space-xs);">Todos</button>
+<button id="chat-tab-direct" onclick="switchChatTab('direct')" style="flex: 1; padding: var(--space-sm); border: none; background: transparent; color: var(--text-secondary); border-radius: var(--radius-lg); font-weight: 600; font-size: var(--font-size-sm); cursor: pointer; margin-right: var(--space-xs);">Directos</button>
+<button id="chat-tab-groups" onclick="switchChatTab('groups')" style="flex: 1; padding: var(--space-sm); border: none; background: transparent; color: var(--text-secondary); border-radius: var(--radius-lg); font-weight: 600; font-size: var(--font-size-sm); cursor: pointer;">Grupos</button>
+</div>
+<!-- Chat List -->
+<div style="flex: 1; overflow-y: auto; padding: var(--space-md);">
+<div class="space-y-2">
+<!-- Active Chat -->
+<div class="chat-item active" onclick="selectChat('team-general')" style="display: flex; align-items: center; gap: var(--space-md); padding: var(--space-md); border-radius: var(--radius-lg); cursor: pointer; background: var(--bg-sidebar-active); border: 1px solid var(--mep-primary-300);">
+<div style="position: relative;">
+<div style="width: 48px; height: 48px; background: linear-gradient(135deg, var(--mep-primary-500), var(--mep-primary-600)); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;">
+<i data-lucide="users" style="width: 24px; height: 24px;"></i>
+</div>
+<div style="position: absolute; bottom: -2px; right: -2px; width: 16px; height: 16px; background: var(--mep-success); border: 3px solid var(--bg-surface); border-radius: var(--radius-full);"></div>
+</div>
+<div style="flex: 1; min-width: 0;">
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
+<h4 style="font-weight: 700; color: var(--text-on-primary); font-size: var(--font-size-base); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Equipo General</h4>
+<span style="font-size: var(--font-size-xs); color: rgba(255,255,255,0.7);">10:30</span>
+</div>
+<p style="font-size: var(--font-size-sm); color: rgba(255,255,255,0.8); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Ana: ¿Podemos revisar el proyecto MEP-2025?</p>
+</div>
+<div style="background: var(--mep-error); color: white; font-size: var(--font-size-xs); padding: 2px 6px; border-radius: var(--radius-full); min-width: 20px; text-align: center;">3</div>
+</div>
+<!-- Other Chats -->
+<div class="chat-item" onclick="selectChat('ana-lopez')" onmouseout="this.style.background='transparent'" onmouseover="this.style.background='var(--bg-tertiary)'" style="display: flex; align-items: center; gap: var(--space-md); padding: var(--space-md); border-radius: var(--radius-lg); cursor: pointer; transition: background-color var(--transition-fast);">
+<div style="position: relative;">
+<div style="width: 48px; height: 48px; background: linear-gradient(135deg, var(--mep-info), #1D4ED8); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: var(--font-size-lg);">A</div>
+<div style="position: absolute; bottom: -2px; right: -2px; width: 16px; height: 16px; background: var(--mep-success); border: 3px solid var(--bg-surface); border-radius: var(--radius-full);"></div>
+</div>
+<div style="flex: 1; min-width: 0;">
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
+<h4 style="font-weight: 700; color: var(--text-primary); font-size: var(--font-size-base); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Ana López</h4>
+<span style="font-size: var(--font-size-xs); color: var(--text-tertiary);">Ayer</span>
+</div>
+<p style="font-size: var(--font-size-sm); color: var(--text-secondary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Perfecto, gracias por la información</p>
+</div>
+</div>
+<div class="chat-item" onclick="selectChat('carlos-gomez')" onmouseout="this.style.background='transparent'" onmouseover="this.style.background='var(--bg-tertiary)'" style="display: flex; align-items: center; gap: var(--space-md); padding: var(--space-md); border-radius: var(--radius-lg); cursor: pointer; transition: background-color var(--transition-fast);">
+<div style="position: relative;">
+<div style="width: 48px; height: 48px; background: linear-gradient(135deg, #8B5CF6, #7C3AED); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: var(--font-size-lg);">C</div>
+<div style="position: absolute; bottom: -2px; right: -2px; width: 16px; height: 16px; background: var(--mep-warning); border: 3px solid var(--bg-surface); border-radius: var(--radius-full);"></div>
+</div>
+<div style="flex: 1; min-width: 0;">
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
+<h4 style="font-weight: 700; color: var(--text-primary); font-size: var(--font-size-base); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Carlos Gómez</h4>
+<span style="font-size: var(--font-size-xs); color: var(--text-tertiary);">2 días</span>
+</div>
+<p style="font-size: var(--font-size-sm); color: var(--text-secondary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">El servidor ya está configurado ✅</p>
+</div>
+</div>
+<div class="chat-item" onclick="selectChat('proyecto-erp')" onmouseout="this.style.background='transparent'" onmouseover="this.style.background='var(--bg-tertiary)'" style="display: flex; align-items: center; gap: var(--space-md); padding: var(--space-md); border-radius: var(--radius-lg); cursor: pointer; transition: background-color var(--transition-fast);">
+<div style="position: relative;">
+<div style="width: 48px; height: 48px; background: linear-gradient(135deg, var(--mep-warning), #EA580C); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;">
+<i data-lucide="briefcase" style="width: 24px; height: 24px;"></i>
+</div>
+<div style="position: absolute; bottom: -2px; right: -2px; width: 16px; height: 16px; background: var(--mep-gray-400); border: 3px solid var(--bg-surface); border-radius: var(--radius-full);"></div>
+</div>
+<div style="flex: 1; min-width: 0;">
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
+<h4 style="font-weight: 700; color: var(--text-primary); font-size: var(--font-size-base); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Proyecto ERP</h4>
+<span style="font-size: var(--font-size-xs); color: var(--text-tertiary);">3 días</span>
+</div>
+<p style="font-size: var(--font-size-sm); color: var(--text-secondary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">María: Necesitamos revisar los módulos</p>
+</div>
+<div class="chat-item" onclick="selectChat('proyecto-erp')" onmouseout="this.style.background='transparent'" onmouseover="this.style.background='var(--bg-tertiary)'" style="
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-md);
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    transition: background-color var(--transition-fast);
+  ">
+<!-- Avatar + estado -->
+<div style="position: relative;">
+<div style="
+        width: 48px;
+        height: 48px;
+        background: linear-gradient(135deg, var(--mep-warning), #EA580C);
+        border-radius: var(--radius-lg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: 700;
+      ">
+<i data-lucide="briefcase" style="width: 24px; height: 24px;"></i>
+</div>
+<div style="
+        position: absolute;
+        bottom: -2px;
+        right: -2px;
+        width: 16px;
+        height: 16px;
+        background: var(--mep-gray-400);
+        border: 3px solid var(--bg-surface);
+        border-radius: var(--radius-full);
+      "></div>
+</div>
+<!-- Texto del chat -->
+<div style="flex: 1; min-width: 0;">
+<div style="
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2px;
+      ">
+<h4 style="
+          font-weight: 700;
+          color: var(--text-primary);
+          font-size: var(--font-size-base);
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        ">
+        Proyecto ERP
+      </h4>
+<span style="font-size: var(--font-size-xs); color: var(--text-tertiary);">3 días</span>
+</div>
+<p style="
+        font-size: var(--font-size-sm);
+        color: var(--text-secondary);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      ">
+      María: Necesitamos revisar los módulos
+    </p>
+</div>
+<!-- Badge de no leídos -->
+<div style="
+      background: var(--mep-primary-500);
+      color: white;
+      font-size: var(--font-size-xs);
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: var(--radius-full);
+      min-width: 20px;
+      text-align: center;
+    ">
+    5
+  </div>
+</div>
+</div></div></div></div></div></div>
