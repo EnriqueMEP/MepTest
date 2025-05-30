@@ -51,7 +51,7 @@
           <a href="#projects" data-module="projects" class="sidebar-nav-item">
             <i data-lucide="briefcase" class="sidebar-nav-icon"></i>
             <span class="sidebar-nav-text">Proyectos</span>
-            <span class="sidebar-nav-badge">24</span>
+            <span class="sidebar-nav-badge">5</span>
           </a>
           
           <a href="#tasks" data-module="tasks" class="sidebar-nav-item">
@@ -249,10 +249,9 @@
     </main>
   </div>
   
-  <!-- Scripts -->
+  <!-- Scripts - ORDEN CORRECTO -->
   <script src="js/config.js"></script>
   <script src="js/utils.js"></script>
-  <script src="js/components.js"></script>
   
   <!-- Módulos -->
   <script src="js/modules/dashboard.js"></script>
@@ -261,17 +260,26 @@
   <script src="js/modules/chat.js"></script>
   <script src="js/modules/crm.js"></script>
   <script src="js/modules/erp.js"></script>
+  <script src="js/modules/rrhh.js"></script>
+  <script src="js/modules/inventory.js"></script>
   <script src="js/modules/settings.js"></script>
   
   <!-- App Core -->
   <script src="js/app.js"></script>
+  
+  <!-- Inicialización -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       // Renderiza los iconos de Lucide
-      lucide.replace();
-      // Inicia la app y fuerza #dashboard en la primera carga
-      window.app = new MEPApplication();
-      app.init();
+      lucide.createIcons();
+      
+      // Inicia la app
+      if (typeof MEPApplication !== 'undefined') {
+        window.app = new MEPApplication();
+        window.app.init();
+      } else {
+        console.error('MEPApplication no está definida');
+      }
     });
   </script>
 </body>
